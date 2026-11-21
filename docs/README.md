@@ -15,6 +15,7 @@ O símbolo combina documento, código e sinal de “mais”. O arquivo SVG corre
 | [Arquitetura](ARQUITETURA.md) | Desenvolvedores e arquitetos | Como o editor funciona por dentro e por que foi construído assim |
 | [Desenvolvimento](DESENVOLVIMENTO.md) | Desenvolvedores e IAs | Convenções, receitas de mudança, testes e armadilhas |
 | [Roadmap](ROADMAP.md) | Produto e comunidade | O que existe, o que vem depois e prioridades |
+| [Release](RELEASE.md) | Mantenedores | Como gerar e publicar os instaladores (automático e manual) |
 | [AGENTS.md](../AGENTS.md) | Agentes de IA | Contexto curto e operacional do repositório |
 | [Changelog](../CHANGELOG.md) | Todos | O que mudou em cada versão |
 

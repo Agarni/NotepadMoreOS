@@ -88,6 +88,7 @@ Target framework is `net10.0`. Keep the build free of errors and warnings.
 | Application icon | `src/NotepadMoreOS/Assets/appicon.svg`, `.png`, `.ico` |
 | Localization | `src/NotepadMoreOS/Resources/Strings*.resx`, `Services/LocalizationService.cs`, `tools/localization/` |
 | Installers | `tools/release/setup.iss`, `build-macos.sh`, `build-windows.sh`, `.github/workflows/release.yml` |
+| Release guide | `docs/RELEASE.md` |
 | Brand display | `Views/WelcomeView.axaml`, `Views/Dialogs/AboutWindow.axaml`, `Views/MainWindow.axaml` |
 | Tests | `tests/NotepadMoreOS.Tests/` |
 | Screenshots | `tools/NotepadMoreOS.UiSnapshot/`, `docs/screenshot-*.png` |

@@ -42,6 +42,7 @@ Tela de boas-vindas com arquivos recentes:
 - [Arquitetura](docs/ARQUITETURA.md) — como o editor funciona por dentro.
 - [Guia de desenvolvimento](docs/DESENVOLVIMENTO.md) — convenções, receitas e armadilhas.
 - [Roadmap](docs/ROADMAP.md) — prioridades e limitações planejadas.
+- [Release](docs/RELEASE.md) — como gerar e publicar os instaladores.
 - [AGENTS.md](AGENTS.md) — contexto operacional para agentes de IA.
 - [Changelog](CHANGELOG.md) — o que mudou em cada versão.
 
