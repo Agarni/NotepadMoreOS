@@ -2,6 +2,12 @@
 
 Todas as mudanças relevantes do NotepadMoreOS são registradas aqui.
 
+## [1.7.2] — 2026-11-21
+
+### Adicionado
+
+- Botão **GitHub project / Projeto no GitHub** na janela About, abrindo https://github.com/Agarni/NotepadMoreOS. O botão do Notepad++ continua ao lado, separando claramente o nosso projeto do editor que o inspirou.
+
 ## [1.7.1] — 2026-11-21
 
 ### Adicionado

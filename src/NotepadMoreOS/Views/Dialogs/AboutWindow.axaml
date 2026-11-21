@@ -51,6 +51,9 @@
       </Border>
 
       <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right">
+        <Button Content="{x:Static loc:Strings.About_GitHubButton}"
+                Classes="ghost"
+                Click="OnRepositoryClick" />
         <Button Content="{x:Static loc:Strings.About_ProjectButton}"
                 Classes="ghost"
                 Click="OnProjectClick" />

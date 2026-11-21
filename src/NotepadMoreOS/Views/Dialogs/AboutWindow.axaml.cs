@@ -8,6 +8,7 @@ namespace NotepadMoreOS.Views.Dialogs;
 public partial class AboutWindow : Window
 {
     private const string ProjectUrl = "https://github.com/notepad-plus-plus/notepad-plus-plus";
+    private const string RepositoryUrl = "https://github.com/Agarni/NotepadMoreOS";
 
     public AboutWindow()
     {
@@ -21,11 +22,15 @@ public partial class AboutWindow : Window
 
     private void OnCloseClick(object? sender, RoutedEventArgs e) => Close();
 
-    private async void OnProjectClick(object? sender, RoutedEventArgs e)
+    private async void OnRepositoryClick(object? sender, RoutedEventArgs e) => await OpenAsync(RepositoryUrl);
+
+    private async void OnProjectClick(object? sender, RoutedEventArgs e) => await OpenAsync(ProjectUrl);
+
+    private async Task OpenAsync(string url)
     {
         if (TopLevel.GetTopLevel(this)?.Launcher is { } launcher)
         {
-            await launcher.LaunchUriAsync(new Uri(ProjectUrl));
+            await launcher.LaunchUriAsync(new Uri(url));
         }
     }
 }

@@ -2,7 +2,7 @@
 
 [![Build and test](https://github.com/Agarni/NotepadMoreOS/actions/workflows/build.yml/badge.svg)](https://github.com/Agarni/NotepadMoreOS/actions/workflows/build.yml)
 
-Um editor de texto e código multiplataforma inspirado no **Notepad++**, construído com **Avalonia 12**, **.NET 10** e **AvaloniaEdit**. Versão atual: **1.7.1**.
+Um editor de texto e código multiplataforma inspirado no **Notepad++**, construído com **Avalonia 12**, **.NET 10** e **AvaloniaEdit**. Versão atual: **1.7.2**.
 
 ## Download
 

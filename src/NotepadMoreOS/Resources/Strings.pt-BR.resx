@@ -862,4 +862,7 @@
   <data name="Tabs_ScrollRight" xml:space="preserve">
     <value>Rolar abas para a direita</value>
   </data>
+  <data name="About_GitHubButton" xml:space="preserve">
+    <value>Projeto no GitHub</value>
+  </data>
 </root>

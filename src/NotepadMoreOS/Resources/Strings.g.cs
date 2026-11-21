@@ -301,4 +301,5 @@ public static class Strings
     public static string Status_Length => Get(nameof(Status_Length));
     public static string Tabs_ScrollLeft => Get(nameof(Tabs_ScrollLeft));
     public static string Tabs_ScrollRight => Get(nameof(Tabs_ScrollRight));
+    public static string About_GitHubButton => Get(nameof(About_GitHubButton));
 }
