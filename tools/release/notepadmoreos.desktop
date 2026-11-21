@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=NotepadMoreOS
+GenericName=Text Editor
+Comment=A fast, cross-platform text and source code editor
+Exec=/opt/notepadmoreos/NotepadMoreOS %F
+Icon=notepadmoreos
+Terminal=false
+Categories=Utility;TextEditor;Development;
+MimeType=text/plain;text/x-csrc;text/x-chdr;text/x-c++src;text/x-c++hdr;text/x-csharp;text/x-java;text/x-python;text/x-rust;text/x-go;application/json;text/markdown;text/xml;text/css;text/html;application/x-shellscript;text/x-yaml;text/x-sql;
+StartupNotify=true
+StartupWMClass=NotepadMoreOS

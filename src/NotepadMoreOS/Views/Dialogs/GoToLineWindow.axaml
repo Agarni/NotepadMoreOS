@@ -1,0 +1,51 @@
+<Window
+        xmlns:loc="using:NotepadMoreOS.Resources" xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="NotepadMoreOS.Views.Dialogs.GoToLineWindow"
+        Width="380"
+        SizeToContent="Height"
+        CanResize="False"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner"
+        Background="{DynamicResource AppBackgroundBrush}">
+  <Border Padding="24,22,24,18">
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="10">
+      <TextBlock FontSize="16"
+                 FontWeight="SemiBold"
+                 Foreground="{DynamicResource TextPrimaryBrush}"
+                 Text="{x:Static loc:Strings.Dialog_GoToLineTitle}" />
+
+      <TextBlock Grid.Row="1"
+                 x:Name="RangeText"
+                 FontSize="12"
+                 Foreground="{DynamicResource TextSecondaryBrush}" />
+
+      <TextBox Grid.Row="2"
+               x:Name="LineBox"
+               PlaceholderText="Line number"
+               FontSize="14"
+               KeyDown="OnLineBoxKeyDown" />
+
+      <StackPanel Grid.Row="3"
+                  Orientation="Horizontal"
+                  HorizontalAlignment="Right"
+                  Spacing="8"
+                  Margin="0,8,0,0">
+        <TextBlock x:Name="ErrorText"
+                   VerticalAlignment="Center"
+                   FontSize="12"
+                   Margin="0,0,10,0"
+                   Foreground="{DynamicResource DangerBrush}"
+                   IsVisible="False" />
+        <Button Content="{x:Static loc:Strings.Settings_Cancel}"
+                Classes="ghost"
+                IsCancel="True"
+                Click="OnCancelClick" />
+        <Button Content="Go"
+                Classes="accent"
+                IsDefault="True"
+                Click="OnGoClick" />
+      </StackPanel>
+    </Grid>
+  </Border>
+</Window>

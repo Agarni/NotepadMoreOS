@@ -1,0 +1,192 @@
+<Window
+        xmlns:loc="using:NotepadMoreOS.Resources" xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:NotepadMoreOS.ViewModels"
+        x:Class="NotepadMoreOS.Views.Dialogs.FindInFilesWindow"
+        x:DataType="vm:FindInFilesViewModel"
+        Title="Find in files"
+        Width="920"
+        Height="720"
+        MinWidth="760"
+        MinHeight="560"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner"
+        Background="{DynamicResource AppBackgroundBrush}">
+  <Window.Styles>
+    <Style Selector="TreeViewItem">
+      <Setter Property="IsExpanded" Value="True" />
+    </Style>
+  </Window.Styles>
+
+  <Grid RowDefinitions="Auto,Auto,Auto,Auto,*,Auto" Margin="24,20,24,18" RowSpacing="14">
+    <StackPanel Spacing="3">
+      <TextBlock Text="Find in files"
+                 FontSize="19"
+                 FontWeight="SemiBold"
+                 Foreground="{DynamicResource TextPrimaryBrush}" />
+      <TextBlock Text="Search every text file in a folder using masks, plain text or regular expressions."
+                 FontSize="12.5"
+                 Foreground="{DynamicResource TextSecondaryBrush}" />
+    </StackPanel>
+
+    <Grid Grid.Row="1"
+          ColumnDefinitions="104,*,Auto"
+          RowDefinitions="Auto,Auto,Auto"
+          ColumnSpacing="10"
+          RowSpacing="9"
+          IsEnabled="{Binding CanEdit}">
+      <TextBlock Text="Find what" Classes="label" VerticalAlignment="Center" />
+      <TextBox Grid.Column="1"
+               Grid.ColumnSpan="2"
+               x:Name="PatternBox"
+               Text="{Binding Pattern, Mode=TwoWay}"
+               PlaceholderText="Text or regular expression"
+               KeyDown="OnFieldKeyDown" />
+
+      <TextBlock Grid.Row="1" Text="Folder" Classes="label" VerticalAlignment="Center" />
+      <TextBox Grid.Row="1"
+               Grid.Column="1"
+               Text="{Binding Folder, Mode=TwoWay}"
+               PlaceholderText="Folder to search"
+               KeyDown="OnFieldKeyDown" />
+      <Button Grid.Row="1"
+              Grid.Column="2"
+              Content="Browse..."
+              Classes="ghost"
+              Click="OnBrowseClick" />
+
+      <TextBlock Grid.Row="2" Text="File mask" Classes="label" VerticalAlignment="Center" />
+      <TextBox Grid.Row="2"
+               Grid.Column="1"
+               Text="{Binding FileMasks, Mode=TwoWay}"
+               PlaceholderText="*.cs;*.md;*.txt"
+               KeyDown="OnFieldKeyDown" />
+      <TextBlock Grid.Row="2"
+                 Grid.Column="2"
+                 Text="Separate masks with ; or ,"
+                 FontSize="11"
+                 VerticalAlignment="Center"
+                 Foreground="{DynamicResource TextSecondaryBrush}" />
+    </Grid>
+
+    <WrapPanel Grid.Row="2" ItemSpacing="22" LineSpacing="4" IsEnabled="{Binding CanEdit}">
+      <CheckBox Content="{x:Static loc:Strings.Find_MatchCase}" IsChecked="{Binding MatchCase, Mode=TwoWay}" />
+      <CheckBox Content="{x:Static loc:Strings.Find_WholeWord}" IsChecked="{Binding WholeWord, Mode=TwoWay}" />
+      <CheckBox Content="{x:Static loc:Strings.Find_Regex}" IsChecked="{Binding UseRegex, Mode=TwoWay}" />
+      <CheckBox Content="Include subfolders" IsChecked="{Binding IncludeSubdirectories, Mode=TwoWay}" />
+      <CheckBox Content="Skip hidden and build folders" IsChecked="{Binding SkipHiddenAndBuildFolders, Mode=TwoWay}" />
+    </WrapPanel>
+
+    <Grid Grid.Row="3" RowDefinitions="Auto,Auto" RowSpacing="5">
+      <ProgressBar Height="3"
+                   IsIndeterminate="True"
+                   IsVisible="{Binding IsSearching}"
+                   Foreground="{DynamicResource AccentBrush}" />
+      <Grid Grid.Row="1" ColumnDefinitions="*,Auto">
+        <TextBlock Text="{Binding Status}"
+                   Classes="status"
+                   Classes.error="{Binding HasError}"
+                   TextWrapping="Wrap" />
+        <TextBlock Grid.Column="1"
+                   Text="{Binding CurrentFile}"
+                   FontSize="11"
+                   MaxWidth="280"
+                   TextTrimming="CharacterEllipsis"
+                   Foreground="{DynamicResource TextSecondaryBrush}"
+                   IsVisible="{Binding IsSearching}" />
+      </Grid>
+    </Grid>
+
+    <Border Grid.Row="4"
+            Background="{DynamicResource ElevatedSurfaceBrush}"
+            BorderBrush="{DynamicResource PanelBorderBrush}"
+            BorderThickness="1"
+            CornerRadius="10">
+      <Grid>
+        <TreeView x:Name="ResultsTree"
+                  ItemsSource="{Binding Groups}"
+                  SelectionChanged="OnResultsSelectionChanged"
+                  DoubleTapped="OnResultsDoubleTapped"
+                  KeyDown="OnResultsKeyDown"
+                  Background="Transparent">
+          <TreeView.DataTemplates>
+            <TreeDataTemplate DataType="vm:FileSearchGroupViewModel" ItemsSource="{Binding Results}">
+              <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8" Margin="0,2">
+                <Path Data="{StaticResource IconDocument}"
+                      Stroke="{DynamicResource TextSecondaryBrush}"
+                      StrokeThickness="1.4"
+                      StrokeLineCap="Round"
+                      StrokeJoin="Round"
+                      Width="15"
+                      Height="15"
+                      Stretch="Uniform"
+                      VerticalAlignment="Center" />
+                <StackPanel Grid.Column="1" Spacing="1">
+                  <TextBlock Text="{Binding FileName}"
+                             FontSize="12.5"
+                             FontWeight="SemiBold"
+                             Foreground="{DynamicResource TextPrimaryBrush}" />
+                  <TextBlock Text="{Binding Directory}"
+                             FontSize="10.5"
+                             TextTrimming="CharacterEllipsis"
+                             Foreground="{DynamicResource TextSecondaryBrush}" />
+                </StackPanel>
+                <TextBlock Grid.Column="2"
+                           Text="{Binding CountText}"
+                           FontSize="11"
+                           VerticalAlignment="Center"
+                           Foreground="{DynamicResource AccentBrush}" />
+              </Grid>
+            </TreeDataTemplate>
+
+            <DataTemplate DataType="vm:FileSearchResultViewModel">
+              <Grid ColumnDefinitions="108,*" ColumnSpacing="10" Margin="0,1">
+                <TextBlock Text="{Binding Location}"
+                           FontSize="11.5"
+                           Foreground="{DynamicResource AccentBrush}" />
+                <TextBlock Grid.Column="1"
+                           Text="{Binding Preview}"
+                           FontSize="11.5"
+                           TextTrimming="CharacterEllipsis"
+                           Foreground="{DynamicResource TextSecondaryBrush}" />
+              </Grid>
+            </DataTemplate>
+          </TreeView.DataTemplates>
+        </TreeView>
+
+        <TextBlock Text="No results yet. Choose a folder and start a search."
+                   FontSize="12.5"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Foreground="{DynamicResource TextSecondaryBrush}"
+                   IsVisible="{Binding ShowEmptyState}" />
+      </Grid>
+    </Border>
+
+    <Grid Grid.Row="5" ColumnDefinitions="*,Auto">
+      <TextBlock Text="Double-click a result to open it at the matching line."
+                 FontSize="11.5"
+                 VerticalAlignment="Center"
+                 Foreground="{DynamicResource TextSecondaryBrush}" />
+      <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8">
+        <Button Content="Find All"
+                Classes="accent"
+                IsEnabled="{Binding CanSearch}"
+                IsDefault="True"
+                Command="{Binding SearchCommand}" />
+        <Button Content="{x:Static loc:Strings.Settings_Cancel}"
+                Classes="ghost"
+                IsVisible="{Binding IsSearching}"
+                Command="{Binding CancelCommand}" />
+        <Button Content="Open result"
+                Classes="ghost"
+                IsEnabled="{Binding CanOpenResult}"
+                Click="OnOpenClick" />
+        <Button Content="{x:Static loc:Strings.Chrome_Close}"
+                Classes="ghost"
+                IsCancel="True"
+                Click="OnCloseClick" />
+      </StackPanel>
+    </Grid>
+  </Grid>
+</Window>

@@ -1,0 +1,289 @@
+# Authoring source for the UI strings. Format: key|english|portuguese (Brazil).
+# Regenerate with: python3 tools/localization/generate.py
+
+Menu_File|_File|_Arquivo
+Menu_New|New|Novo
+Menu_Open|Open...|Abrir...
+Menu_OpenRecent|Open Recent|Abrir recentes
+Menu_Save|Save|Salvar
+Menu_SaveAs|Save As...|Salvar como...
+Menu_SaveAll|Save All|Salvar tudo
+Menu_Reload|Reload from Disk|Recarregar do disco
+Menu_OpenFolder|Open Containing Folder|Abrir pasta do arquivo
+Menu_CopyPath|Copy File Path|Copiar caminho do arquivo
+Menu_CloseTab|Close Tab|Fechar aba
+Menu_CloseAllTabs|Close All Tabs|Fechar todas as abas
+Menu_Exit|Exit|Sair
+Menu_Edit|_Edit|_Editar
+Menu_Undo|Undo|Desfazer
+Menu_Redo|Redo|Refazer
+Menu_Cut|Cut|Recortar
+Menu_Copy|Copy|Copiar
+Menu_Paste|Paste|Colar
+Menu_Delete|Delete|Excluir
+Menu_SelectAll|Select All|Selecionar tudo
+Menu_DuplicateLine|Duplicate Line|Duplicar linha
+Menu_DeleteLine|Delete Line|Apagar linha
+Menu_ToggleComment|Toggle Comment|Comentar/descomentar
+Menu_InsertDateTime|Insert Date/Time|Inserir data/hora
+Menu_Search|_Search|_Pesquisar
+Menu_Find|Find...|Localizar...
+Menu_Replace|Replace...|Substituir...
+Menu_FindNext|Find Next|Localizar próxima
+Menu_FindPrevious|Find Previous|Localizar anterior
+Menu_FindAll|Find All in Current Document|Localizar tudo no documento
+Menu_FindInFiles|Find in Files...|Localizar em arquivos...
+Menu_GoToLine|Go to Line...|Ir para linha...
+Menu_Encoding|_Encoding|_Codificação
+Menu_ReopenEncoding|Reopen with Encoding|Reabrir com codificação
+Menu_SaveEncoding|Save with Encoding|Salvar com codificação
+Menu_View|_View|_Visualizar
+Menu_WordWrap|Word Wrap|Quebra de linha
+Menu_LineNumbers|Line Numbers|Números de linha
+Menu_Whitespace|Whitespace and Tabs|Espaços e tabulações
+Menu_EndOfLine|End of Line|Fim de linha
+Menu_HighlightLine|Highlight Current Line|Destacar linha atual
+Menu_ColumnRuler|Column Ruler|Régua de colunas
+Menu_Theme|Theme|Tema
+Menu_AccentColor|Accent Color|Cor de destaque
+Menu_ZoomIn|Zoom In|Aumentar zoom
+Menu_ZoomOut|Zoom Out|Diminuir zoom
+Menu_ResetZoom|Reset Zoom|Restaurar zoom
+Menu_NextTab|Next Tab|Próxima aba
+Menu_PreviousTab|Previous Tab|Aba anterior
+Menu_Settings|_Settings|_Configurações
+Menu_Preferences|Preferences...|Preferências...
+Menu_Help|_Help|Aj_uda
+Menu_About|About NotepadMoreOS|Sobre o NotepadMoreOS
+Chrome_Close|Close|Fechar
+Chrome_Minimize|Minimize|Minimizar
+Chrome_Maximize|Maximize|Maximizar
+Tool_NewFile|New file|Novo arquivo
+Tool_OpenFiles|Open files|Abrir arquivos
+Tool_RecentFiles|Recent files|Arquivos recentes
+Tool_NoRecentFiles|No recent files|Nenhum arquivo recente
+Tool_Sessions|Sessions|Sessões
+Tool_Language|Language|Linguagem
+Tool_Find|Find|Localizar
+Tool_Settings|Settings|Configurações
+Tool_More|More|Mais
+Tool_ManageSession|Manage session|Gerenciar sessão
+Sessions_Header|SESSIONS|SESSÕES
+Sessions_Empty|No sessions saved yet.|Nenhuma sessão salva ainda.
+Sessions_NewEmpty|New empty session...|Nova sessão vazia...
+Sessions_SaveCurrent|Save current tabs...|Salvar abas atuais...
+Sessions_SaveAsNew|Save as new session...|Salvar como nova sessão...
+Sessions_RenameCurrent|Rename current session...|Renomear sessão atual...
+Sessions_DeleteCurrent|Delete current session...|Excluir sessão atual...
+Sessions_Rename|Rename...|Renomear...
+Tab_CloseMultiple|Close Multiple Tabs|Fechar várias abas
+Tab_CloseOthers|Close Other Tabs|Fechar outras abas
+Tab_CloseRight|Close Tabs to the Right|Fechar abas à direita
+Tab_CloseLeft|Close Tabs to the Left|Fechar abas à esquerda
+Tab_OpenIn|Open In|Abrir em
+Tab_Terminal|Terminal|Terminal
+Tab_MoveToTrash|Move to Trash|Mover para a lixeira
+Tab_Reload|Reload|Recarregar
+Tab_CopyTo|Copy to Clipboard|Copiar para a área de transferência
+Tab_FilePath|File Path|Caminho do arquivo
+Tab_FileName|File Name|Nome do arquivo
+Tab_Contents|Contents|Conteúdo
+Tab_MoveTab|Move Tab|Mover aba
+Tab_MoveLeft|Move Left|Mover para a esquerda
+Tab_MoveRight|Move Right|Mover para a direita
+Tab_MoveStart|Move to Start|Mover para o início
+Tab_MoveEnd|Move to End|Mover para o fim
+Tab_Color|Tab Color|Cor da aba
+Tab_NoColor|No Color|Sem cor
+Color_Red|Red|Vermelho
+Color_Orange|Orange|Laranja
+Color_Yellow|Yellow|Amarelo
+Color_Green|Green|Verde
+Color_Blue|Blue|Azul
+Color_Purple|Purple|Roxo
+Color_Pink|Pink|Rosa
+Color_Gray|Gray|Cinza
+Find_Placeholder|Find|Localizar
+Find_MatchCase|Match case|Diferenciar maiúsculas
+Find_WholeWord|Whole word|Palavra inteira
+Find_Regex|Regular expression|Expressão regular
+Find_Extended|Extended search: \t, \r, \n, \0, \xNN, \uNNNN|Pesquisa estendida: \t, \r, \n, \0, \xNN, \uNNNN
+Find_ReplacePlaceholder|Replace with|Substituir por
+Find_Replace|Replace|Substituir
+Find_ReplaceAll|Replace All|Substituir tudo
+Find_PreviousMatch|Previous match|Ocorrência anterior
+Find_NextMatch|Next match|Próxima ocorrência
+Find_All|Find all|Localizar tudo
+Find_Results|Search results|Resultados da busca
+Find_CloseResults|Close results|Fechar resultados
+Status_SaveEncoding|Save encoding|Codificação de gravação
+Status_LineEndings|Line endings|Fins de linha
+Status_Zoom|Zoom|Zoom
+Welcome_Subtitle|A fast, cross-platform editor for text and code.|Um editor rápido e multiplataforma para texto e código.
+Welcome_OpenFile|Open file|Abrir arquivo
+Welcome_RecentHeader|RECENT FILES|ARQUIVOS RECENTES
+Welcome_Tip|Tip: drag files anywhere into the window to open them.|Dica: arraste arquivos para a janela para abri-los.
+About_Title|About NotepadMoreOS|Sobre o NotepadMoreOS
+About_Description|A fast, cross-platform text and source code editor inspired by Notepad++.|Um editor de texto e código-fonte rápido e multiplataforma, inspirado no Notepad++.
+About_BuiltWith|Built with|Construído com
+About_License|MIT licensed. Notepad++ is a separate project by Don Ho.|Licença MIT. O Notepad++ é um projeto separado de Don Ho.
+About_ProjectButton|Notepad++ project|Projeto Notepad++
+Settings_Title|Settings|Configurações
+Settings_Appearance|Appearance|Aparência
+Settings_ColorTheme|Color theme|Tema de cores
+Settings_LivePreview|Live preview|Prévia ao vivo
+Settings_AccentColor|Accent color|Cor de destaque
+Settings_Palette|Palette|Paleta
+Settings_ResetDefault|Reset to default|Restaurar padrão
+Settings_AccentHint|Use a preset or enter a custom hex color. Theme, accent and tab style changes preview immediately; Cancel restores the previous appearance.|Use uma predefinição ou informe uma cor hexadecimal. Tema, destaque e estilo de abas são pré-visualizados na hora; Cancelar restaura a aparência anterior.
+Settings_AccentInvalid|Enter a 6-digit hex color, for example #42D8D0.|Informe uma cor hexadecimal de 6 dígitos, por exemplo #42D8D0.
+Settings_TabStyle|Tab style|Estilo das abas
+Settings_FontFamily|Font family|Família da fonte
+Settings_FontSize|Font size|Tamanho da fonte
+Settings_Editor|Editor|Editor
+Settings_TabSize|Tab size|Tamanho da tabulação
+Settings_Tabs|Tabs|Tabulações
+Settings_InsertSpaces|Insert spaces instead of tabs|Inserir espaços em vez de tabulações
+Settings_WordWrap|Word wrap|Quebra de linha
+Settings_LineNumbers|Line numbers|Números de linha
+Settings_ShowWhitespace|Show whitespace|Mostrar espaços
+Settings_ShowEol|Show end-of-line|Mostrar fim de linha
+Settings_HighlightLine|Highlight current line|Destacar linha atual
+Settings_ColumnRuler|Column ruler (80, 100, 120)|Régua de colunas (80, 100, 120)
+Settings_Session|Session|Sessão
+Settings_RestoreSession|Reopen files from the previous session on startup|Reabrir arquivos da sessão anterior ao iniciar
+Settings_KeepUnsaved|Keep unsaved changes between sessions (no prompt on exit)|Manter alterações não salvas entre sessões (sem perguntar ao sair)
+Settings_Cancel|Cancel|Cancelar
+Settings_Save|Save settings|Salvar configurações
+Settings_AccentPreview|Accent color preview|Prévia da cor de destaque
+Settings_Language|Language|Idioma
+Settings_LanguageHint|Interface language changes after restarting the app.|O idioma da interface muda após reiniciar o aplicativo.
+Settings_AutoLanguage|Automatic (system)|Automático (sistema)
+TabStyle_Rounded|Rounded — soft pill with accent underline|Arredondada — pílula suave com sublinhado de destaque
+TabStyle_Floating|Floating — airy tabs, active tab highlighted by fill|Flutuante — abas espaçadas, ativa destacada pelo preenchimento
+TabStyle_Connected|Connected — classic tabs attached to the editor|Conectada — abas clássicas encostadas ao editor
+NativeMenu_File|File|Arquivo
+NativeMenu_Edit|Edit|Editar
+NativeMenu_Search|Search|Pesquisar
+NativeMenu_Encoding|Encoding|Codificação
+NativeMenu_View|View|Visualizar
+NativeMenu_Help|Help|Ajuda
+NativeMenu_DetectEncoding|Detect automatically|Detectar automaticamente
+NativeMenu_ResetAccent|Reset to Default|Restaurar padrão
+Session_NoSession|No session|Sem sessão
+Session_Label|Session|Sessão
+Session_Unsaved|Unsaved session|Sessão não salva
+Language_PlainText|Plain Text|Texto simples
+Status_Ready|Ready|Pronto
+Status_Opened|Opened {0}|Aberto: {0}
+Status_CouldNotOpenFile|Could not open file|Não foi possível abrir o arquivo
+Status_NewDocument|New document|Novo documento
+Status_NoChangesToSave|No changes to save|Nenhuma alteração para salvar
+Status_SavedOne|Saved 1 file|1 arquivo salvo
+Status_SavedMany|Saved {0} files|{0} arquivos salvos
+Dialog_ReloadTitle|Reload from disk|Recarregar do disco
+Dialog_DiscardChanges|Discard unsaved changes in "{0}"?|Descartar as alterações não salvas em "{0}"?
+Dialog_ReloadButton|Reload|Recarregar
+Status_Reloaded|Reloaded {0}|Recarregado: {0}
+Status_CouldNotReload|Could not reload file|Não foi possível recarregar o arquivo
+Dialog_ReopenTitle|Reopen with encoding|Reabrir com codificação
+Dialog_ReopenButton|Reopen|Reabrir
+Status_Reopened|Reopened {0} as {1}|{0} reaberto como {1}
+Status_CouldNotReopen|Could not reopen file|Não foi possível reabrir o arquivo
+Status_SavedAsEncoding|File will be saved as {0}|O arquivo será salvo como {0}
+Status_FilePathCopied|File path copied|Caminho do arquivo copiado
+Status_CouldNotOpenFolder|Could not open the folder|Não foi possível abrir a pasta
+Status_CouldNotOpenTerminal|Could not open the terminal|Não foi possível abrir o terminal
+Dialog_RenameFileTitle|Rename file|Renomear arquivo
+Dialog_NewFileName|New file name:|Novo nome do arquivo:
+Dialog_InvalidFileNameTitle|Invalid file name|Nome de arquivo inválido
+Dialog_InvalidFileNameMessage|The new name contains invalid characters.|O novo nome contém caracteres inválidos.
+Dialog_FileExistsTitle|File already exists|O arquivo já existe
+Status_RenamedTo|Renamed to {0}|Renomeado para {0}
+Status_CouldNotRename|Could not rename file|Não foi possível renomear o arquivo
+Dialog_MoveToTrashTitle|Move to Trash|Mover para a lixeira
+Dialog_MoveToTrashMessage|Move "{0}" to Trash?|Mover "{0}" para a lixeira?
+Status_CouldNotTrash|Could not move the file to Trash|Não foi possível mover o arquivo para a lixeira
+Status_CommentUnsupported|Comment toggling is not supported for this language|Comentários não são suportados nesta linguagem
+Status_WordWrapOn|Word wrap on|Quebra de linha ativada
+Status_WordWrapOff|Word wrap off|Quebra de linha desativada
+Status_SettingsUpdated|Settings updated|Configurações atualizadas
+Dialog_NewSessionTitle|New empty session|Nova sessão vazia
+Dialog_SessionName|Name for the new session:|Nome da nova sessão:
+Dialog_SessionExistsTitle|Session already exists|A sessão já existe
+Dialog_NeedTab|Open at least one tab before creating a session|Abra pelo menos uma aba antes de criar uma sessão
+Dialog_SaveSessionTitle|Save session|Salvar sessão
+Dialog_GiveSessionName|Give this session a name:|Dê um nome a esta sessão:
+Dialog_SaveSessionAsTitle|Save session as|Salvar sessão como
+Dialog_RenameSessionTitle|Rename session|Renomear sessão
+Dialog_NewSessionName|New session name:|Novo nome da sessão:
+Dialog_DeleteSessionTitle|Delete session|Excluir sessão
+Dialog_DeleteSessionMessage|Delete the session "{0}"?|Excluir a sessão "{0}"?
+Dialog_UnsavedTitle|Unsaved changes|Alterações não salvas
+Dialog_UnsavedMessage|Do you want to save the changes you made to "{0}"?|Deseja salvar as alterações feitas em "{0}"?
+Dialog_SaveButton|Save|Salvar
+Dialog_DontSaveButton|Don't Save|Não salvar
+Dialog_GoToLineTitle|Go to line|Ir para linha
+Dialog_GoToLineMessage|Enter a line number between 1 and {0}.|Informe um número de linha entre 1 e {0}.
+Dialog_ChooseFolder|Choose a folder to search|Escolha uma pasta para buscar
+About_Version|Version {0}|Versão {0}
+Find_TypeSomething|Type something to find|Digite algo para localizar
+Find_NoMatches|No matches|Nenhuma ocorrência
+Find_ReplacedOne|Replaced 1 occurrence|1 ocorrência substituída
+Find_ReplacedMany|Replaced {0} occurrences|{0} ocorrências substituídas
+Find_ReachedTop|Reached the top|Chegou ao início
+Find_ReachedEnd|Reached the end|Chegou ao fim
+Find_MatchPosition|Match {0} of {1}{2}|Ocorrência {0} de {1}{2}
+Find_NoDocument|Open a document to search|Abra um documento para localizar
+Find_InvalidRegex|Invalid regular expression|Expressão regular inválida
+Find_OneMatch|1 match|1 ocorrência
+Find_ManyMatches|{0} matches|{0} ocorrências
+Find_FirstShown|(first 10,000 shown)|(primeiras 10.000 exibidas)
+FIF_EnterSearchAndFolder|Enter a search and choose a folder.|Informe um termo e escolha uma pasta.
+FIF_TypeSomething|Type something to find.|Digite algo para localizar.
+FIF_ChooseFolder|Choose an existing folder.|Escolha uma pasta existente.
+FIF_Searching|Searching...|Buscando...
+FIF_Cancelled|Search cancelled.|Busca cancelada.
+FIF_Cancelling|Cancelling...|Cancelando...
+FIF_Scanning|Scanning {0} files - {1} matches|Verificando {0} arquivos — {1} ocorrências
+Tab_Pin|Pin Tab|Fixar aba
+Tab_Unpin|Unpin Tab|Desafixar aba
+Tab_ReadOnly|Switch to Read-Only|Alternar para somente leitura
+Tab_ReadWrite|Switch to Read-Write|Alternar para edição
+Dialog_DiscardReload|Discard unsaved changes in "{0}" and reload it from disk?|Descartar as alterações não salvas em "{0}" e recarregar do disco?
+Dialog_DiscardReopen|Discard unsaved changes in "{0}" and reopen it as {1}?|Descartar as alterações não salvas em "{0}" e reabri-lo como {1}?
+Dialog_FileExistsMessage|A file named "{0}" already exists in this folder.|Já existe um arquivo chamado "{0}" nesta pasta.
+Dialog_TrashMessage|Move "{0}" to the Trash? Unsaved changes will be lost.|Mover "{0}" para a lixeira? As alterações não salvas serão perdidas.
+Dialog_SessionExistsMessage|A session named "{0}" already exists.|Já existe uma sessão chamada "{0}".
+Dialog_DeleteSessionDetail|Delete the session "{0}"? Open tabs are not affected.|Excluir a sessão "{0}"? As abas abertas não são afetadas.
+Status_SessionExists|Session "{0}" already exists|A sessão "{0}" já existe
+Status_EmptySessionCreated|Empty session "{0}" created|Sessão vazia "{0}" criada
+Status_SessionSaved|Session "{0}" saved|Sessão "{0}" salva
+Status_SessionOpened|Opened session "{0}" with {1} file(s){2}|Sessão "{0}" aberta com {1} arquivo(s){2}
+Status_SessionRenamed|Session renamed to "{0}"|Sessão renomeada para "{0}"
+Status_SessionDeleted|Session "{0}" deleted|Sessão "{0}" excluída
+Status_SavedDocToSession|Saved {0} to session|{0} salvo na sessão
+Status_SavedDoc|Saved {0}|{0} salvo
+Status_OpenedAtLine|Opened {0} at line {1}|{0} aberto na linha {1}
+Status_FileDeletedOnDisk|File deleted on disk: {0}|Arquivo excluído do disco: {0}
+Status_KeptLocalChanges|Kept local changes in {0}|Alterações locais mantidas em {0}
+Find_ManyMatchesTruncated|{0} matches (first 10,000 shown)|{0} ocorrências (primeiras 10.000 exibidas)
+Find_ManyMatchesPlus|{0}+ matches|{0}+ ocorrências
+FIF_Location|Ln {0}, Col {1}|Ln {0}, Col {1}
+FIF_OneResult|1 result|1 resultado
+FIF_ManyResults|{0} results|{0} resultados
+FIF_Failed|Search failed: {0}|A busca falhou: {0}
+FIF_NoMatchesSummary|No matches in {0} files.|Nenhuma ocorrência em {0} arquivos.
+FIF_Summary|{0} {1} in {2} {3} - {4} scanned, {5} skipped.|{0} {1} em {2} {3} — {4} verificados, {5} ignorados.
+FIF_ResultWord|result|resultado
+FIF_ResultsWord|results|resultados
+FIF_FileWord|file|arquivo
+FIF_FilesWord|files|arquivos
+FIF_Limited| Limited to the first {0} results.| Limitado às primeiras {0} ocorrências.
+Session_EmptySummary|Empty · {0}|Vazia · {0}
+Session_FileCount|{0} file|{0} arquivo
+Session_FilesCount|{0} files|{0} arquivos
+Status_Lines|Lines {0}|Linhas {0}
+Status_Length|Length {0:N0}|Comprimento {0:N0}
+Tabs_ScrollLeft|Scroll tabs left|Rolar abas para a esquerda
+Tabs_ScrollRight|Scroll tabs right|Rolar abas para a direita

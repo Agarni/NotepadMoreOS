@@ -1,0 +1,129 @@
+<UserControl
+        xmlns:loc="using:NotepadMoreOS.Resources" xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:NotepadMoreOS.ViewModels"
+             x:Class="NotepadMoreOS.Views.WelcomeView"
+             x:DataType="vm:MainWindowViewModel">
+  <Grid Background="{DynamicResource AppBackgroundBrush}">
+    <Ellipse Width="640"
+             Height="640"
+             Fill="{DynamicResource WelcomeGlowBrush}"
+             HorizontalAlignment="Center"
+             VerticalAlignment="Center"
+             IsHitTestVisible="False" />
+
+    <Grid RowDefinitions="*,Auto,*">
+      <StackPanel Grid.Row="1"
+                  Width="560"
+                  HorizontalAlignment="Center"
+                  Spacing="18">
+
+        <Image Source="/Assets/appicon.png"
+               Width="84"
+               Height="84"
+               Stretch="Uniform"
+               HorizontalAlignment="Center" />
+
+        <StackPanel Spacing="6">
+          <TextBlock FontSize="36"
+                     FontWeight="SemiBold"
+                     HorizontalAlignment="Center">
+            <Run Text="Notepad" Foreground="{DynamicResource TextPrimaryBrush}" />
+            <Run Text="More" Foreground="#43DCE2" />
+            <Run Text="OS" Foreground="{DynamicResource TextSecondaryBrush}" />
+          </TextBlock>
+          <TextBlock Text="{x:Static loc:Strings.Welcome_Subtitle}"
+                     FontSize="14"
+                     HorizontalAlignment="Center"
+                     Foreground="{DynamicResource TextSecondaryBrush}" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Spacing="10"
+                    Margin="0,6,0,4">
+          <Button Classes="accent" Command="{Binding NewDocumentCommand}" Padding="20,10">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+              <Path Data="{StaticResource IconNew}"
+                    Stroke="{DynamicResource AccentForegroundBrush}"
+                    StrokeThickness="1.7"
+                    StrokeLineCap="Round"
+                    StrokeJoin="Round"
+                    Width="16"
+                    Height="16"
+                    Stretch="Uniform" />
+              <TextBlock Text="{x:Static loc:Strings.Tool_NewFile}" />
+            </StackPanel>
+          </Button>
+          <Button Classes="ghost" Command="{Binding OpenCommand}" Padding="20,10">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+              <Path Data="{StaticResource IconOpen}"
+                    Stroke="{DynamicResource TextPrimaryBrush}"
+                    StrokeThickness="1.7"
+                    StrokeLineCap="Round"
+                    StrokeJoin="Round"
+                    Width="16"
+                    Height="16"
+                    Stretch="Uniform" />
+              <TextBlock Text="{x:Static loc:Strings.Welcome_OpenFile}" />
+            </StackPanel>
+          </Button>
+        </StackPanel>
+
+        <Border IsVisible="{Binding HasRecentFiles}"
+                Background="{DynamicResource ElevatedSurfaceBrush}"
+                BorderBrush="{DynamicResource PanelBorderBrush}"
+                BorderThickness="1"
+                CornerRadius="12"
+                Padding="10"
+                BoxShadow="0 12 32 0 #22000000"
+                Margin="0,10,0,0">
+          <StackPanel Spacing="2">
+            <TextBlock Text="{x:Static loc:Strings.Welcome_RecentHeader}"
+                       Classes="section-title"
+                       Foreground="{DynamicResource AccentBrush}"
+                       Margin="10,8,0,6" />
+            <ScrollViewer MaxHeight="240" VerticalScrollBarVisibility="Auto">
+              <ItemsControl ItemsSource="{Binding RecentFiles}">
+                <ItemsControl.ItemTemplate>
+                  <DataTemplate x:DataType="vm:RecentFileViewModel">
+                    <Button Classes="recent"
+                            Command="{Binding OpenCommand}"
+                            CommandParameter="{Binding Path}"
+                            ToolTip.Tip="{Binding Path}">
+                      <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                        <Path Data="{StaticResource IconDocument}"
+                              Stroke="{DynamicResource TextSecondaryBrush}"
+                              StrokeThickness="1.4"
+                              StrokeLineCap="Round"
+                              StrokeJoin="Round"
+                              Width="16"
+                              Height="16"
+                              Stretch="Uniform"
+                              VerticalAlignment="Center" />
+                        <StackPanel Grid.Column="1" Spacing="1">
+                          <TextBlock Text="{Binding DisplayName}"
+                                     FontSize="12.5"
+                                     Foreground="{DynamicResource TextPrimaryBrush}" />
+                          <TextBlock Text="{Binding Directory}"
+                                     FontSize="11"
+                                     TextTrimming="CharacterEllipsis"
+                                     Foreground="{DynamicResource TextSecondaryBrush}" />
+                        </StackPanel>
+                      </Grid>
+                    </Button>
+                  </DataTemplate>
+                </ItemsControl.ItemTemplate>
+              </ItemsControl>
+            </ScrollViewer>
+          </StackPanel>
+        </Border>
+
+        <TextBlock Text="{x:Static loc:Strings.Welcome_Tip}"
+                   FontSize="11.5"
+                   HorizontalAlignment="Center"
+                   Foreground="{DynamicResource TextSecondaryBrush}" />
+      </StackPanel>
+    </Grid>
+  </Grid>
+</UserControl>

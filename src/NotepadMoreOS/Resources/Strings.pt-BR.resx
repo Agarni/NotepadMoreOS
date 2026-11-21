@@ -1,0 +1,865 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="Menu_File" xml:space="preserve">
+    <value>_Arquivo</value>
+  </data>
+  <data name="Menu_New" xml:space="preserve">
+    <value>Novo</value>
+  </data>
+  <data name="Menu_Open" xml:space="preserve">
+    <value>Abrir...</value>
+  </data>
+  <data name="Menu_OpenRecent" xml:space="preserve">
+    <value>Abrir recentes</value>
+  </data>
+  <data name="Menu_Save" xml:space="preserve">
+    <value>Salvar</value>
+  </data>
+  <data name="Menu_SaveAs" xml:space="preserve">
+    <value>Salvar como...</value>
+  </data>
+  <data name="Menu_SaveAll" xml:space="preserve">
+    <value>Salvar tudo</value>
+  </data>
+  <data name="Menu_Reload" xml:space="preserve">
+    <value>Recarregar do disco</value>
+  </data>
+  <data name="Menu_OpenFolder" xml:space="preserve">
+    <value>Abrir pasta do arquivo</value>
+  </data>
+  <data name="Menu_CopyPath" xml:space="preserve">
+    <value>Copiar caminho do arquivo</value>
+  </data>
+  <data name="Menu_CloseTab" xml:space="preserve">
+    <value>Fechar aba</value>
+  </data>
+  <data name="Menu_CloseAllTabs" xml:space="preserve">
+    <value>Fechar todas as abas</value>
+  </data>
+  <data name="Menu_Exit" xml:space="preserve">
+    <value>Sair</value>
+  </data>
+  <data name="Menu_Edit" xml:space="preserve">
+    <value>_Editar</value>
+  </data>
+  <data name="Menu_Undo" xml:space="preserve">
+    <value>Desfazer</value>
+  </data>
+  <data name="Menu_Redo" xml:space="preserve">
+    <value>Refazer</value>
+  </data>
+  <data name="Menu_Cut" xml:space="preserve">
+    <value>Recortar</value>
+  </data>
+  <data name="Menu_Copy" xml:space="preserve">
+    <value>Copiar</value>
+  </data>
+  <data name="Menu_Paste" xml:space="preserve">
+    <value>Colar</value>
+  </data>
+  <data name="Menu_Delete" xml:space="preserve">
+    <value>Excluir</value>
+  </data>
+  <data name="Menu_SelectAll" xml:space="preserve">
+    <value>Selecionar tudo</value>
+  </data>
+  <data name="Menu_DuplicateLine" xml:space="preserve">
+    <value>Duplicar linha</value>
+  </data>
+  <data name="Menu_DeleteLine" xml:space="preserve">
+    <value>Apagar linha</value>
+  </data>
+  <data name="Menu_ToggleComment" xml:space="preserve">
+    <value>Comentar/descomentar</value>
+  </data>
+  <data name="Menu_InsertDateTime" xml:space="preserve">
+    <value>Inserir data/hora</value>
+  </data>
+  <data name="Menu_Search" xml:space="preserve">
+    <value>_Pesquisar</value>
+  </data>
+  <data name="Menu_Find" xml:space="preserve">
+    <value>Localizar...</value>
+  </data>
+  <data name="Menu_Replace" xml:space="preserve">
+    <value>Substituir...</value>
+  </data>
+  <data name="Menu_FindNext" xml:space="preserve">
+    <value>Localizar próxima</value>
+  </data>
+  <data name="Menu_FindPrevious" xml:space="preserve">
+    <value>Localizar anterior</value>
+  </data>
+  <data name="Menu_FindAll" xml:space="preserve">
+    <value>Localizar tudo no documento</value>
+  </data>
+  <data name="Menu_FindInFiles" xml:space="preserve">
+    <value>Localizar em arquivos...</value>
+  </data>
+  <data name="Menu_GoToLine" xml:space="preserve">
+    <value>Ir para linha...</value>
+  </data>
+  <data name="Menu_Encoding" xml:space="preserve">
+    <value>_Codificação</value>
+  </data>
+  <data name="Menu_ReopenEncoding" xml:space="preserve">
+    <value>Reabrir com codificação</value>
+  </data>
+  <data name="Menu_SaveEncoding" xml:space="preserve">
+    <value>Salvar com codificação</value>
+  </data>
+  <data name="Menu_View" xml:space="preserve">
+    <value>_Visualizar</value>
+  </data>
+  <data name="Menu_WordWrap" xml:space="preserve">
+    <value>Quebra de linha</value>
+  </data>
+  <data name="Menu_LineNumbers" xml:space="preserve">
+    <value>Números de linha</value>
+  </data>
+  <data name="Menu_Whitespace" xml:space="preserve">
+    <value>Espaços e tabulações</value>
+  </data>
+  <data name="Menu_EndOfLine" xml:space="preserve">
+    <value>Fim de linha</value>
+  </data>
+  <data name="Menu_HighlightLine" xml:space="preserve">
+    <value>Destacar linha atual</value>
+  </data>
+  <data name="Menu_ColumnRuler" xml:space="preserve">
+    <value>Régua de colunas</value>
+  </data>
+  <data name="Menu_Theme" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="Menu_AccentColor" xml:space="preserve">
+    <value>Cor de destaque</value>
+  </data>
+  <data name="Menu_ZoomIn" xml:space="preserve">
+    <value>Aumentar zoom</value>
+  </data>
+  <data name="Menu_ZoomOut" xml:space="preserve">
+    <value>Diminuir zoom</value>
+  </data>
+  <data name="Menu_ResetZoom" xml:space="preserve">
+    <value>Restaurar zoom</value>
+  </data>
+  <data name="Menu_NextTab" xml:space="preserve">
+    <value>Próxima aba</value>
+  </data>
+  <data name="Menu_PreviousTab" xml:space="preserve">
+    <value>Aba anterior</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>_Configurações</value>
+  </data>
+  <data name="Menu_Preferences" xml:space="preserve">
+    <value>Preferências...</value>
+  </data>
+  <data name="Menu_Help" xml:space="preserve">
+    <value>Aj_uda</value>
+  </data>
+  <data name="Menu_About" xml:space="preserve">
+    <value>Sobre o NotepadMoreOS</value>
+  </data>
+  <data name="Chrome_Close" xml:space="preserve">
+    <value>Fechar</value>
+  </data>
+  <data name="Chrome_Minimize" xml:space="preserve">
+    <value>Minimizar</value>
+  </data>
+  <data name="Chrome_Maximize" xml:space="preserve">
+    <value>Maximizar</value>
+  </data>
+  <data name="Tool_NewFile" xml:space="preserve">
+    <value>Novo arquivo</value>
+  </data>
+  <data name="Tool_OpenFiles" xml:space="preserve">
+    <value>Abrir arquivos</value>
+  </data>
+  <data name="Tool_RecentFiles" xml:space="preserve">
+    <value>Arquivos recentes</value>
+  </data>
+  <data name="Tool_NoRecentFiles" xml:space="preserve">
+    <value>Nenhum arquivo recente</value>
+  </data>
+  <data name="Tool_Sessions" xml:space="preserve">
+    <value>Sessões</value>
+  </data>
+  <data name="Tool_Language" xml:space="preserve">
+    <value>Linguagem</value>
+  </data>
+  <data name="Tool_Find" xml:space="preserve">
+    <value>Localizar</value>
+  </data>
+  <data name="Tool_Settings" xml:space="preserve">
+    <value>Configurações</value>
+  </data>
+  <data name="Tool_More" xml:space="preserve">
+    <value>Mais</value>
+  </data>
+  <data name="Tool_ManageSession" xml:space="preserve">
+    <value>Gerenciar sessão</value>
+  </data>
+  <data name="Sessions_Header" xml:space="preserve">
+    <value>SESSÕES</value>
+  </data>
+  <data name="Sessions_Empty" xml:space="preserve">
+    <value>Nenhuma sessão salva ainda.</value>
+  </data>
+  <data name="Sessions_NewEmpty" xml:space="preserve">
+    <value>Nova sessão vazia...</value>
+  </data>
+  <data name="Sessions_SaveCurrent" xml:space="preserve">
+    <value>Salvar abas atuais...</value>
+  </data>
+  <data name="Sessions_SaveAsNew" xml:space="preserve">
+    <value>Salvar como nova sessão...</value>
+  </data>
+  <data name="Sessions_RenameCurrent" xml:space="preserve">
+    <value>Renomear sessão atual...</value>
+  </data>
+  <data name="Sessions_DeleteCurrent" xml:space="preserve">
+    <value>Excluir sessão atual...</value>
+  </data>
+  <data name="Sessions_Rename" xml:space="preserve">
+    <value>Renomear...</value>
+  </data>
+  <data name="Tab_CloseMultiple" xml:space="preserve">
+    <value>Fechar várias abas</value>
+  </data>
+  <data name="Tab_CloseOthers" xml:space="preserve">
+    <value>Fechar outras abas</value>
+  </data>
+  <data name="Tab_CloseRight" xml:space="preserve">
+    <value>Fechar abas à direita</value>
+  </data>
+  <data name="Tab_CloseLeft" xml:space="preserve">
+    <value>Fechar abas à esquerda</value>
+  </data>
+  <data name="Tab_OpenIn" xml:space="preserve">
+    <value>Abrir em</value>
+  </data>
+  <data name="Tab_Terminal" xml:space="preserve">
+    <value>Terminal</value>
+  </data>
+  <data name="Tab_MoveToTrash" xml:space="preserve">
+    <value>Mover para a lixeira</value>
+  </data>
+  <data name="Tab_Reload" xml:space="preserve">
+    <value>Recarregar</value>
+  </data>
+  <data name="Tab_CopyTo" xml:space="preserve">
+    <value>Copiar para a área de transferência</value>
+  </data>
+  <data name="Tab_FilePath" xml:space="preserve">
+    <value>Caminho do arquivo</value>
+  </data>
+  <data name="Tab_FileName" xml:space="preserve">
+    <value>Nome do arquivo</value>
+  </data>
+  <data name="Tab_Contents" xml:space="preserve">
+    <value>Conteúdo</value>
+  </data>
+  <data name="Tab_MoveTab" xml:space="preserve">
+    <value>Mover aba</value>
+  </data>
+  <data name="Tab_MoveLeft" xml:space="preserve">
+    <value>Mover para a esquerda</value>
+  </data>
+  <data name="Tab_MoveRight" xml:space="preserve">
+    <value>Mover para a direita</value>
+  </data>
+  <data name="Tab_MoveStart" xml:space="preserve">
+    <value>Mover para o início</value>
+  </data>
+  <data name="Tab_MoveEnd" xml:space="preserve">
+    <value>Mover para o fim</value>
+  </data>
+  <data name="Tab_Color" xml:space="preserve">
+    <value>Cor da aba</value>
+  </data>
+  <data name="Tab_NoColor" xml:space="preserve">
+    <value>Sem cor</value>
+  </data>
+  <data name="Color_Red" xml:space="preserve">
+    <value>Vermelho</value>
+  </data>
+  <data name="Color_Orange" xml:space="preserve">
+    <value>Laranja</value>
+  </data>
+  <data name="Color_Yellow" xml:space="preserve">
+    <value>Amarelo</value>
+  </data>
+  <data name="Color_Green" xml:space="preserve">
+    <value>Verde</value>
+  </data>
+  <data name="Color_Blue" xml:space="preserve">
+    <value>Azul</value>
+  </data>
+  <data name="Color_Purple" xml:space="preserve">
+    <value>Roxo</value>
+  </data>
+  <data name="Color_Pink" xml:space="preserve">
+    <value>Rosa</value>
+  </data>
+  <data name="Color_Gray" xml:space="preserve">
+    <value>Cinza</value>
+  </data>
+  <data name="Find_Placeholder" xml:space="preserve">
+    <value>Localizar</value>
+  </data>
+  <data name="Find_MatchCase" xml:space="preserve">
+    <value>Diferenciar maiúsculas</value>
+  </data>
+  <data name="Find_WholeWord" xml:space="preserve">
+    <value>Palavra inteira</value>
+  </data>
+  <data name="Find_Regex" xml:space="preserve">
+    <value>Expressão regular</value>
+  </data>
+  <data name="Find_Extended" xml:space="preserve">
+    <value>Pesquisa estendida: \t, \r, \n, \0, \xNN, \uNNNN</value>
+  </data>
+  <data name="Find_ReplacePlaceholder" xml:space="preserve">
+    <value>Substituir por</value>
+  </data>
+  <data name="Find_Replace" xml:space="preserve">
+    <value>Substituir</value>
+  </data>
+  <data name="Find_ReplaceAll" xml:space="preserve">
+    <value>Substituir tudo</value>
+  </data>
+  <data name="Find_PreviousMatch" xml:space="preserve">
+    <value>Ocorrência anterior</value>
+  </data>
+  <data name="Find_NextMatch" xml:space="preserve">
+    <value>Próxima ocorrência</value>
+  </data>
+  <data name="Find_All" xml:space="preserve">
+    <value>Localizar tudo</value>
+  </data>
+  <data name="Find_Results" xml:space="preserve">
+    <value>Resultados da busca</value>
+  </data>
+  <data name="Find_CloseResults" xml:space="preserve">
+    <value>Fechar resultados</value>
+  </data>
+  <data name="Status_SaveEncoding" xml:space="preserve">
+    <value>Codificação de gravação</value>
+  </data>
+  <data name="Status_LineEndings" xml:space="preserve">
+    <value>Fins de linha</value>
+  </data>
+  <data name="Status_Zoom" xml:space="preserve">
+    <value>Zoom</value>
+  </data>
+  <data name="Welcome_Subtitle" xml:space="preserve">
+    <value>Um editor rápido e multiplataforma para texto e código.</value>
+  </data>
+  <data name="Welcome_OpenFile" xml:space="preserve">
+    <value>Abrir arquivo</value>
+  </data>
+  <data name="Welcome_RecentHeader" xml:space="preserve">
+    <value>ARQUIVOS RECENTES</value>
+  </data>
+  <data name="Welcome_Tip" xml:space="preserve">
+    <value>Dica: arraste arquivos para a janela para abri-los.</value>
+  </data>
+  <data name="About_Title" xml:space="preserve">
+    <value>Sobre o NotepadMoreOS</value>
+  </data>
+  <data name="About_Description" xml:space="preserve">
+    <value>Um editor de texto e código-fonte rápido e multiplataforma, inspirado no Notepad++.</value>
+  </data>
+  <data name="About_BuiltWith" xml:space="preserve">
+    <value>Construído com</value>
+  </data>
+  <data name="About_License" xml:space="preserve">
+    <value>Licença MIT. O Notepad++ é um projeto separado de Don Ho.</value>
+  </data>
+  <data name="About_ProjectButton" xml:space="preserve">
+    <value>Projeto Notepad++</value>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>Configurações</value>
+  </data>
+  <data name="Settings_Appearance" xml:space="preserve">
+    <value>Aparência</value>
+  </data>
+  <data name="Settings_ColorTheme" xml:space="preserve">
+    <value>Tema de cores</value>
+  </data>
+  <data name="Settings_LivePreview" xml:space="preserve">
+    <value>Prévia ao vivo</value>
+  </data>
+  <data name="Settings_AccentColor" xml:space="preserve">
+    <value>Cor de destaque</value>
+  </data>
+  <data name="Settings_Palette" xml:space="preserve">
+    <value>Paleta</value>
+  </data>
+  <data name="Settings_ResetDefault" xml:space="preserve">
+    <value>Restaurar padrão</value>
+  </data>
+  <data name="Settings_AccentHint" xml:space="preserve">
+    <value>Use uma predefinição ou informe uma cor hexadecimal. Tema, destaque e estilo de abas são pré-visualizados na hora; Cancelar restaura a aparência anterior.</value>
+  </data>
+  <data name="Settings_AccentInvalid" xml:space="preserve">
+    <value>Informe uma cor hexadecimal de 6 dígitos, por exemplo #42D8D0.</value>
+  </data>
+  <data name="Settings_TabStyle" xml:space="preserve">
+    <value>Estilo das abas</value>
+  </data>
+  <data name="Settings_FontFamily" xml:space="preserve">
+    <value>Família da fonte</value>
+  </data>
+  <data name="Settings_FontSize" xml:space="preserve">
+    <value>Tamanho da fonte</value>
+  </data>
+  <data name="Settings_Editor" xml:space="preserve">
+    <value>Editor</value>
+  </data>
+  <data name="Settings_TabSize" xml:space="preserve">
+    <value>Tamanho da tabulação</value>
+  </data>
+  <data name="Settings_Tabs" xml:space="preserve">
+    <value>Tabulações</value>
+  </data>
+  <data name="Settings_InsertSpaces" xml:space="preserve">
+    <value>Inserir espaços em vez de tabulações</value>
+  </data>
+  <data name="Settings_WordWrap" xml:space="preserve">
+    <value>Quebra de linha</value>
+  </data>
+  <data name="Settings_LineNumbers" xml:space="preserve">
+    <value>Números de linha</value>
+  </data>
+  <data name="Settings_ShowWhitespace" xml:space="preserve">
+    <value>Mostrar espaços</value>
+  </data>
+  <data name="Settings_ShowEol" xml:space="preserve">
+    <value>Mostrar fim de linha</value>
+  </data>
+  <data name="Settings_HighlightLine" xml:space="preserve">
+    <value>Destacar linha atual</value>
+  </data>
+  <data name="Settings_ColumnRuler" xml:space="preserve">
+    <value>Régua de colunas (80, 100, 120)</value>
+  </data>
+  <data name="Settings_Session" xml:space="preserve">
+    <value>Sessão</value>
+  </data>
+  <data name="Settings_RestoreSession" xml:space="preserve">
+    <value>Reabrir arquivos da sessão anterior ao iniciar</value>
+  </data>
+  <data name="Settings_KeepUnsaved" xml:space="preserve">
+    <value>Manter alterações não salvas entre sessões (sem perguntar ao sair)</value>
+  </data>
+  <data name="Settings_Cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Settings_Save" xml:space="preserve">
+    <value>Salvar configurações</value>
+  </data>
+  <data name="Settings_AccentPreview" xml:space="preserve">
+    <value>Prévia da cor de destaque</value>
+  </data>
+  <data name="Settings_Language" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="Settings_LanguageHint" xml:space="preserve">
+    <value>O idioma da interface muda após reiniciar o aplicativo.</value>
+  </data>
+  <data name="Settings_AutoLanguage" xml:space="preserve">
+    <value>Automático (sistema)</value>
+  </data>
+  <data name="TabStyle_Rounded" xml:space="preserve">
+    <value>Arredondada — pílula suave com sublinhado de destaque</value>
+  </data>
+  <data name="TabStyle_Floating" xml:space="preserve">
+    <value>Flutuante — abas espaçadas, ativa destacada pelo preenchimento</value>
+  </data>
+  <data name="TabStyle_Connected" xml:space="preserve">
+    <value>Conectada — abas clássicas encostadas ao editor</value>
+  </data>
+  <data name="NativeMenu_File" xml:space="preserve">
+    <value>Arquivo</value>
+  </data>
+  <data name="NativeMenu_Edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="NativeMenu_Search" xml:space="preserve">
+    <value>Pesquisar</value>
+  </data>
+  <data name="NativeMenu_Encoding" xml:space="preserve">
+    <value>Codificação</value>
+  </data>
+  <data name="NativeMenu_View" xml:space="preserve">
+    <value>Visualizar</value>
+  </data>
+  <data name="NativeMenu_Help" xml:space="preserve">
+    <value>Ajuda</value>
+  </data>
+  <data name="NativeMenu_DetectEncoding" xml:space="preserve">
+    <value>Detectar automaticamente</value>
+  </data>
+  <data name="NativeMenu_ResetAccent" xml:space="preserve">
+    <value>Restaurar padrão</value>
+  </data>
+  <data name="Session_NoSession" xml:space="preserve">
+    <value>Sem sessão</value>
+  </data>
+  <data name="Session_Label" xml:space="preserve">
+    <value>Sessão</value>
+  </data>
+  <data name="Session_Unsaved" xml:space="preserve">
+    <value>Sessão não salva</value>
+  </data>
+  <data name="Language_PlainText" xml:space="preserve">
+    <value>Texto simples</value>
+  </data>
+  <data name="Status_Ready" xml:space="preserve">
+    <value>Pronto</value>
+  </data>
+  <data name="Status_Opened" xml:space="preserve">
+    <value>Aberto: {0}</value>
+  </data>
+  <data name="Status_CouldNotOpenFile" xml:space="preserve">
+    <value>Não foi possível abrir o arquivo</value>
+  </data>
+  <data name="Status_NewDocument" xml:space="preserve">
+    <value>Novo documento</value>
+  </data>
+  <data name="Status_NoChangesToSave" xml:space="preserve">
+    <value>Nenhuma alteração para salvar</value>
+  </data>
+  <data name="Status_SavedOne" xml:space="preserve">
+    <value>1 arquivo salvo</value>
+  </data>
+  <data name="Status_SavedMany" xml:space="preserve">
+    <value>{0} arquivos salvos</value>
+  </data>
+  <data name="Dialog_ReloadTitle" xml:space="preserve">
+    <value>Recarregar do disco</value>
+  </data>
+  <data name="Dialog_DiscardChanges" xml:space="preserve">
+    <value>Descartar as alterações não salvas em "{0}"?</value>
+  </data>
+  <data name="Dialog_ReloadButton" xml:space="preserve">
+    <value>Recarregar</value>
+  </data>
+  <data name="Status_Reloaded" xml:space="preserve">
+    <value>Recarregado: {0}</value>
+  </data>
+  <data name="Status_CouldNotReload" xml:space="preserve">
+    <value>Não foi possível recarregar o arquivo</value>
+  </data>
+  <data name="Dialog_ReopenTitle" xml:space="preserve">
+    <value>Reabrir com codificação</value>
+  </data>
+  <data name="Dialog_ReopenButton" xml:space="preserve">
+    <value>Reabrir</value>
+  </data>
+  <data name="Status_Reopened" xml:space="preserve">
+    <value>{0} reaberto como {1}</value>
+  </data>
+  <data name="Status_CouldNotReopen" xml:space="preserve">
+    <value>Não foi possível reabrir o arquivo</value>
+  </data>
+  <data name="Status_SavedAsEncoding" xml:space="preserve">
+    <value>O arquivo será salvo como {0}</value>
+  </data>
+  <data name="Status_FilePathCopied" xml:space="preserve">
+    <value>Caminho do arquivo copiado</value>
+  </data>
+  <data name="Status_CouldNotOpenFolder" xml:space="preserve">
+    <value>Não foi possível abrir a pasta</value>
+  </data>
+  <data name="Status_CouldNotOpenTerminal" xml:space="preserve">
+    <value>Não foi possível abrir o terminal</value>
+  </data>
+  <data name="Dialog_RenameFileTitle" xml:space="preserve">
+    <value>Renomear arquivo</value>
+  </data>
+  <data name="Dialog_NewFileName" xml:space="preserve">
+    <value>Novo nome do arquivo:</value>
+  </data>
+  <data name="Dialog_InvalidFileNameTitle" xml:space="preserve">
+    <value>Nome de arquivo inválido</value>
+  </data>
+  <data name="Dialog_InvalidFileNameMessage" xml:space="preserve">
+    <value>O novo nome contém caracteres inválidos.</value>
+  </data>
+  <data name="Dialog_FileExistsTitle" xml:space="preserve">
+    <value>O arquivo já existe</value>
+  </data>
+  <data name="Status_RenamedTo" xml:space="preserve">
+    <value>Renomeado para {0}</value>
+  </data>
+  <data name="Status_CouldNotRename" xml:space="preserve">
+    <value>Não foi possível renomear o arquivo</value>
+  </data>
+  <data name="Dialog_MoveToTrashTitle" xml:space="preserve">
+    <value>Mover para a lixeira</value>
+  </data>
+  <data name="Dialog_MoveToTrashMessage" xml:space="preserve">
+    <value>Mover "{0}" para a lixeira?</value>
+  </data>
+  <data name="Status_CouldNotTrash" xml:space="preserve">
+    <value>Não foi possível mover o arquivo para a lixeira</value>
+  </data>
+  <data name="Status_CommentUnsupported" xml:space="preserve">
+    <value>Comentários não são suportados nesta linguagem</value>
+  </data>
+  <data name="Status_WordWrapOn" xml:space="preserve">
+    <value>Quebra de linha ativada</value>
+  </data>
+  <data name="Status_WordWrapOff" xml:space="preserve">
+    <value>Quebra de linha desativada</value>
+  </data>
+  <data name="Status_SettingsUpdated" xml:space="preserve">
+    <value>Configurações atualizadas</value>
+  </data>
+  <data name="Dialog_NewSessionTitle" xml:space="preserve">
+    <value>Nova sessão vazia</value>
+  </data>
+  <data name="Dialog_SessionName" xml:space="preserve">
+    <value>Nome da nova sessão:</value>
+  </data>
+  <data name="Dialog_SessionExistsTitle" xml:space="preserve">
+    <value>A sessão já existe</value>
+  </data>
+  <data name="Dialog_NeedTab" xml:space="preserve">
+    <value>Abra pelo menos uma aba antes de criar uma sessão</value>
+  </data>
+  <data name="Dialog_SaveSessionTitle" xml:space="preserve">
+    <value>Salvar sessão</value>
+  </data>
+  <data name="Dialog_GiveSessionName" xml:space="preserve">
+    <value>Dê um nome a esta sessão:</value>
+  </data>
+  <data name="Dialog_SaveSessionAsTitle" xml:space="preserve">
+    <value>Salvar sessão como</value>
+  </data>
+  <data name="Dialog_RenameSessionTitle" xml:space="preserve">
+    <value>Renomear sessão</value>
+  </data>
+  <data name="Dialog_NewSessionName" xml:space="preserve">
+    <value>Novo nome da sessão:</value>
+  </data>
+  <data name="Dialog_DeleteSessionTitle" xml:space="preserve">
+    <value>Excluir sessão</value>
+  </data>
+  <data name="Dialog_DeleteSessionMessage" xml:space="preserve">
+    <value>Excluir a sessão "{0}"?</value>
+  </data>
+  <data name="Dialog_UnsavedTitle" xml:space="preserve">
+    <value>Alterações não salvas</value>
+  </data>
+  <data name="Dialog_UnsavedMessage" xml:space="preserve">
+    <value>Deseja salvar as alterações feitas em "{0}"?</value>
+  </data>
+  <data name="Dialog_SaveButton" xml:space="preserve">
+    <value>Salvar</value>
+  </data>
+  <data name="Dialog_DontSaveButton" xml:space="preserve">
+    <value>Não salvar</value>
+  </data>
+  <data name="Dialog_GoToLineTitle" xml:space="preserve">
+    <value>Ir para linha</value>
+  </data>
+  <data name="Dialog_GoToLineMessage" xml:space="preserve">
+    <value>Informe um número de linha entre 1 e {0}.</value>
+  </data>
+  <data name="Dialog_ChooseFolder" xml:space="preserve">
+    <value>Escolha uma pasta para buscar</value>
+  </data>
+  <data name="About_Version" xml:space="preserve">
+    <value>Versão {0}</value>
+  </data>
+  <data name="Find_TypeSomething" xml:space="preserve">
+    <value>Digite algo para localizar</value>
+  </data>
+  <data name="Find_NoMatches" xml:space="preserve">
+    <value>Nenhuma ocorrência</value>
+  </data>
+  <data name="Find_ReplacedOne" xml:space="preserve">
+    <value>1 ocorrência substituída</value>
+  </data>
+  <data name="Find_ReplacedMany" xml:space="preserve">
+    <value>{0} ocorrências substituídas</value>
+  </data>
+  <data name="Find_ReachedTop" xml:space="preserve">
+    <value>Chegou ao início</value>
+  </data>
+  <data name="Find_ReachedEnd" xml:space="preserve">
+    <value>Chegou ao fim</value>
+  </data>
+  <data name="Find_MatchPosition" xml:space="preserve">
+    <value>Ocorrência {0} de {1}{2}</value>
+  </data>
+  <data name="Find_NoDocument" xml:space="preserve">
+    <value>Abra um documento para localizar</value>
+  </data>
+  <data name="Find_InvalidRegex" xml:space="preserve">
+    <value>Expressão regular inválida</value>
+  </data>
+  <data name="Find_OneMatch" xml:space="preserve">
+    <value>1 ocorrência</value>
+  </data>
+  <data name="Find_ManyMatches" xml:space="preserve">
+    <value>{0} ocorrências</value>
+  </data>
+  <data name="Find_FirstShown" xml:space="preserve">
+    <value>(primeiras 10.000 exibidas)</value>
+  </data>
+  <data name="FIF_EnterSearchAndFolder" xml:space="preserve">
+    <value>Informe um termo e escolha uma pasta.</value>
+  </data>
+  <data name="FIF_TypeSomething" xml:space="preserve">
+    <value>Digite algo para localizar.</value>
+  </data>
+  <data name="FIF_ChooseFolder" xml:space="preserve">
+    <value>Escolha uma pasta existente.</value>
+  </data>
+  <data name="FIF_Searching" xml:space="preserve">
+    <value>Buscando...</value>
+  </data>
+  <data name="FIF_Cancelled" xml:space="preserve">
+    <value>Busca cancelada.</value>
+  </data>
+  <data name="FIF_Cancelling" xml:space="preserve">
+    <value>Cancelando...</value>
+  </data>
+  <data name="FIF_Scanning" xml:space="preserve">
+    <value>Verificando {0} arquivos — {1} ocorrências</value>
+  </data>
+  <data name="Tab_Pin" xml:space="preserve">
+    <value>Fixar aba</value>
+  </data>
+  <data name="Tab_Unpin" xml:space="preserve">
+    <value>Desafixar aba</value>
+  </data>
+  <data name="Tab_ReadOnly" xml:space="preserve">
+    <value>Alternar para somente leitura</value>
+  </data>
+  <data name="Tab_ReadWrite" xml:space="preserve">
+    <value>Alternar para edição</value>
+  </data>
+  <data name="Dialog_DiscardReload" xml:space="preserve">
+    <value>Descartar as alterações não salvas em "{0}" e recarregar do disco?</value>
+  </data>
+  <data name="Dialog_DiscardReopen" xml:space="preserve">
+    <value>Descartar as alterações não salvas em "{0}" e reabri-lo como {1}?</value>
+  </data>
+  <data name="Dialog_FileExistsMessage" xml:space="preserve">
+    <value>Já existe um arquivo chamado "{0}" nesta pasta.</value>
+  </data>
+  <data name="Dialog_TrashMessage" xml:space="preserve">
+    <value>Mover "{0}" para a lixeira? As alterações não salvas serão perdidas.</value>
+  </data>
+  <data name="Dialog_SessionExistsMessage" xml:space="preserve">
+    <value>Já existe uma sessão chamada "{0}".</value>
+  </data>
+  <data name="Dialog_DeleteSessionDetail" xml:space="preserve">
+    <value>Excluir a sessão "{0}"? As abas abertas não são afetadas.</value>
+  </data>
+  <data name="Status_SessionExists" xml:space="preserve">
+    <value>A sessão "{0}" já existe</value>
+  </data>
+  <data name="Status_EmptySessionCreated" xml:space="preserve">
+    <value>Sessão vazia "{0}" criada</value>
+  </data>
+  <data name="Status_SessionSaved" xml:space="preserve">
+    <value>Sessão "{0}" salva</value>
+  </data>
+  <data name="Status_SessionOpened" xml:space="preserve">
+    <value>Sessão "{0}" aberta com {1} arquivo(s){2}</value>
+  </data>
+  <data name="Status_SessionRenamed" xml:space="preserve">
+    <value>Sessão renomeada para "{0}"</value>
+  </data>
+  <data name="Status_SessionDeleted" xml:space="preserve">
+    <value>Sessão "{0}" excluída</value>
+  </data>
+  <data name="Status_SavedDocToSession" xml:space="preserve">
+    <value>{0} salvo na sessão</value>
+  </data>
+  <data name="Status_SavedDoc" xml:space="preserve">
+    <value>{0} salvo</value>
+  </data>
+  <data name="Status_OpenedAtLine" xml:space="preserve">
+    <value>{0} aberto na linha {1}</value>
+  </data>
+  <data name="Status_FileDeletedOnDisk" xml:space="preserve">
+    <value>Arquivo excluído do disco: {0}</value>
+  </data>
+  <data name="Status_KeptLocalChanges" xml:space="preserve">
+    <value>Alterações locais mantidas em {0}</value>
+  </data>
+  <data name="Find_ManyMatchesTruncated" xml:space="preserve">
+    <value>{0} ocorrências (primeiras 10.000 exibidas)</value>
+  </data>
+  <data name="Find_ManyMatchesPlus" xml:space="preserve">
+    <value>{0}+ ocorrências</value>
+  </data>
+  <data name="FIF_Location" xml:space="preserve">
+    <value>Ln {0}, Col {1}</value>
+  </data>
+  <data name="FIF_OneResult" xml:space="preserve">
+    <value>1 resultado</value>
+  </data>
+  <data name="FIF_ManyResults" xml:space="preserve">
+    <value>{0} resultados</value>
+  </data>
+  <data name="FIF_Failed" xml:space="preserve">
+    <value>A busca falhou: {0}</value>
+  </data>
+  <data name="FIF_NoMatchesSummary" xml:space="preserve">
+    <value>Nenhuma ocorrência em {0} arquivos.</value>
+  </data>
+  <data name="FIF_Summary" xml:space="preserve">
+    <value>{0} {1} em {2} {3} — {4} verificados, {5} ignorados.</value>
+  </data>
+  <data name="FIF_ResultWord" xml:space="preserve">
+    <value>resultado</value>
+  </data>
+  <data name="FIF_ResultsWord" xml:space="preserve">
+    <value>resultados</value>
+  </data>
+  <data name="FIF_FileWord" xml:space="preserve">
+    <value>arquivo</value>
+  </data>
+  <data name="FIF_FilesWord" xml:space="preserve">
+    <value>arquivos</value>
+  </data>
+  <data name="FIF_Limited" xml:space="preserve">
+    <value> Limitado às primeiras {0} ocorrências.</value>
+  </data>
+  <data name="Session_EmptySummary" xml:space="preserve">
+    <value>Vazia · {0}</value>
+  </data>
+  <data name="Session_FileCount" xml:space="preserve">
+    <value>{0} arquivo</value>
+  </data>
+  <data name="Session_FilesCount" xml:space="preserve">
+    <value>{0} arquivos</value>
+  </data>
+  <data name="Status_Lines" xml:space="preserve">
+    <value>Linhas {0}</value>
+  </data>
+  <data name="Status_Length" xml:space="preserve">
+    <value>Comprimento {0:N0}</value>
+  </data>
+  <data name="Tabs_ScrollLeft" xml:space="preserve">
+    <value>Rolar abas para a esquerda</value>
+  </data>
+  <data name="Tabs_ScrollRight" xml:space="preserve">
+    <value>Rolar abas para a direita</value>
+  </data>
+</root>

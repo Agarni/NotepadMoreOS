@@ -1,0 +1,253 @@
+<Window
+        xmlns:loc="using:NotepadMoreOS.Resources" xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:NotepadMoreOS.ViewModels"
+        xmlns:models="using:NotepadMoreOS.Models"
+        xmlns:services="using:NotepadMoreOS.Services"
+        xmlns:automation="using:Avalonia.Automation"
+        x:Class="NotepadMoreOS.Views.Dialogs.SettingsWindow"
+        x:DataType="vm:SettingsViewModel"
+        Title="{x:Static loc:Strings.Tool_Settings}"
+        Width="680"
+        Height="720"
+        MinWidth="520"
+        MinHeight="420"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner"
+        Background="{DynamicResource AppBackgroundBrush}">
+  <Window.Styles>
+    <Style Selector="Button.palette">
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="BorderBrush" Value="Transparent" />
+      <Setter Property="BorderThickness" Value="2" />
+      <Setter Property="Padding" Value="2" />
+      <Setter Property="CornerRadius" Value="13" />
+    </Style>
+    <Style Selector="Button.palette:pointerover">
+      <Setter Property="Background" Value="{DynamicResource HoverBrush}" />
+    </Style>
+    <Style Selector="Button.palette.selected">
+      <Setter Property="BorderBrush" Value="{DynamicResource TextPrimaryBrush}" />
+    </Style>
+  </Window.Styles>
+  <Grid RowDefinitions="*,Auto">
+    <ScrollViewer Padding="28,22,28,10">
+      <StackPanel Spacing="26">
+        <StackPanel Spacing="12">
+          <TextBlock Classes="section-title" Text="{x:Static loc:Strings.Settings_Appearance}" />
+
+          <Grid ColumnDefinitions="190,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="12">
+            <TextBlock Classes="label" Text="{x:Static loc:Strings.Settings_ColorTheme}" VerticalAlignment="Center" />
+            <ComboBox Grid.Column="1"
+                      HorizontalAlignment="Stretch"
+                      ItemsSource="{Binding Themes}"
+                      SelectedItem="{Binding Theme, Mode=TwoWay}">
+              <ComboBox.ItemTemplate>
+                <DataTemplate x:DataType="services:ThemeInfo">
+                  <TextBlock Text="{Binding DisplayName}" />
+                </DataTemplate>
+              </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <Border Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    Background="{DynamicResource ChromeBackgroundAltBrush}"
+                    BorderBrush="{DynamicResource PanelBorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="10"
+                    Padding="12">
+              <Grid RowDefinitions="Auto,Auto" RowSpacing="8">
+                <Grid ColumnDefinitions="*,Auto">
+                  <TextBlock Text="{x:Static loc:Strings.Settings_LivePreview}"
+                             Classes="section-title"
+                             VerticalAlignment="Center" />
+                  <TextBlock Grid.Column="1"
+                             Text="{Binding Theme.DisplayName}"
+                             FontSize="12"
+                             Foreground="{DynamicResource TextSecondaryBrush}"
+                             VerticalAlignment="Center" />
+                </Grid>
+                <Border Grid.Row="1"
+                        Background="{Binding Theme.PreviewBackground}"
+                        CornerRadius="7"
+                        Padding="12">
+                  <StackPanel Spacing="5">
+                    <TextBlock FontFamily="monospace" FontSize="12">
+                      <Run Text="const " Foreground="{Binding Theme.PreviewKeyword}" />
+                      <Run Text="greeting " Foreground="{Binding Theme.PreviewForeground}" />
+                      <Run Text="= " Foreground="{Binding Theme.PreviewForeground}" />
+                      <Run Text="&quot;Hello, themes!&quot;" Foreground="{Binding Theme.PreviewString}" />
+                    </TextBlock>
+                    <TextBlock FontFamily="monospace" FontSize="12">
+                      <Run Text="return " Foreground="{Binding Theme.PreviewKeyword}" />
+                      <Run Text="greeting;" Foreground="{Binding Theme.PreviewForeground}" />
+                    </TextBlock>
+                    <TextBlock Text="// Syntax colors update with the selected theme"
+                               FontFamily="monospace"
+                               FontSize="11"
+                               Foreground="{Binding Theme.PreviewAccent}" />
+                  </StackPanel>
+                </Border>
+              </Grid>
+            </Border>
+
+            <TextBlock Grid.Row="2" Classes="label" Text="{x:Static loc:Strings.Settings_AccentColor}" VerticalAlignment="Center" />
+            <Grid Grid.Row="2" Grid.Column="1" ColumnDefinitions="*,36" ColumnSpacing="8">
+              <TextBox Text="{Binding AccentColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                       MaxLength="7"
+                       PlaceholderText="#5BD08E" />
+              <Border Grid.Column="1"
+                      Width="34"
+                      Height="34"
+                      Background="{Binding AccentPreviewBrush}"
+                      BorderBrush="{DynamicResource PanelBorderBrush}"
+                      BorderThickness="1"
+                      CornerRadius="7"
+                      ToolTip.Tip="{x:Static loc:Strings.Settings_AccentPreview}" />
+            </Grid>
+
+            <TextBlock Grid.Row="3" Classes="label" Text="{x:Static loc:Strings.Settings_Palette}" VerticalAlignment="Top" Margin="0,5,0,0" />
+            <ItemsControl Grid.Row="3" Grid.Column="1" ItemsSource="{Binding AccentPalette}">
+              <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                  <WrapPanel ItemSpacing="4" LineSpacing="4" />
+                </ItemsPanelTemplate>
+              </ItemsControl.ItemsPanel>
+              <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="vm:AccentColorPreset">
+                  <Button Classes="palette"
+                          Classes.selected="{Binding IsSelected}"
+                          ToolTip.Tip="{Binding ToolTipText}"
+                          Command="{Binding SelectCommand}"
+                          CommandParameter="{Binding Hex}"
+                          automation:AutomationProperties.Name="{Binding Name}">
+                    <Border Width="18"
+                            Height="18"
+                            CornerRadius="9"
+                            Background="{Binding Brush}"
+                            BorderBrush="{DynamicResource StrongBorderBrush}"
+                            BorderThickness="1" />
+                  </Button>
+                </DataTemplate>
+              </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <StackPanel Grid.Row="4" Grid.Column="1" Spacing="6">
+              <Button Classes="ghost"
+                      Content="{x:Static loc:Strings.Settings_ResetDefault}"
+                      HorizontalAlignment="Left"
+                      Padding="9,3"
+                      FontSize="11"
+                      Command="{Binding ResetAccentColorCommand}" />
+              <TextBlock Text="{x:Static loc:Strings.Settings_AccentHint}"
+                         TextWrapping="Wrap"
+                         FontSize="11"
+                         Foreground="{DynamicResource TextSecondaryBrush}" />
+              <TextBlock Text="{x:Static loc:Strings.Settings_AccentInvalid}"
+                         IsVisible="{Binding IsAccentColorInvalid}"
+                         FontSize="11"
+                         Foreground="{DynamicResource DangerBrush}" />
+            </StackPanel>
+
+            <TextBlock Grid.Row="5" Classes="label" Text="{x:Static loc:Strings.Settings_TabStyle}" VerticalAlignment="Center" />
+            <ComboBox Grid.Row="5"
+                      Grid.Column="1"
+                      HorizontalAlignment="Stretch"
+                      ItemsSource="{Binding TabStyles}"
+                      SelectedItem="{Binding TabStyle, Mode=TwoWay}">
+              <ComboBox.ItemTemplate>
+                <DataTemplate x:DataType="models:TabStyleInfo">
+                  <TextBlock Text="{Binding DisplayName}" />
+                </DataTemplate>
+              </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <TextBlock Grid.Row="6" Classes="label" Text="{x:Static loc:Strings.Settings_Language}" VerticalAlignment="Center" />
+            <StackPanel Grid.Row="6" Grid.Column="1" Spacing="4">
+              <ComboBox HorizontalAlignment="Stretch"
+                        ItemsSource="{Binding Languages}"
+                        SelectedItem="{Binding Language, Mode=TwoWay}">
+                <ComboBox.ItemTemplate>
+                  <DataTemplate x:DataType="services:LanguageOption">
+                    <TextBlock Text="{Binding DisplayName}" />
+                  </DataTemplate>
+                </ComboBox.ItemTemplate>
+              </ComboBox>
+              <TextBlock Text="{x:Static loc:Strings.Settings_LanguageHint}"
+                         FontSize="11"
+                         TextWrapping="Wrap"
+                         Foreground="{DynamicResource TextSecondaryBrush}" />
+            </StackPanel>
+
+            <TextBlock Grid.Row="7" Classes="label" Text="{x:Static loc:Strings.Settings_FontFamily}" VerticalAlignment="Center" />
+            <TextBox Grid.Row="7"
+                     Grid.Column="1"
+                     Text="{Binding FontFamily, Mode=TwoWay}"
+                     PlaceholderText="Menlo, Consolas, monospace" />
+
+            <TextBlock Grid.Row="8" Classes="label" Text="{x:Static loc:Strings.Settings_FontSize}" VerticalAlignment="Center" />
+            <NumericUpDown Grid.Row="8"
+                           Grid.Column="1"
+                           Minimum="6"
+                           Maximum="72"
+                           Increment="1"
+                           FormatString="0"
+                           Value="{Binding FontSize, Mode=TwoWay}" />
+          </Grid>
+        </StackPanel>
+
+        <StackPanel Spacing="12">
+          <TextBlock Classes="section-title" Text="{x:Static loc:Strings.Settings_Editor}" />
+
+          <Grid ColumnDefinitions="190,*" RowDefinitions="Auto,Auto" RowSpacing="12">
+            <TextBlock Classes="label" Text="{x:Static loc:Strings.Settings_TabSize}" VerticalAlignment="Center" />
+            <NumericUpDown Grid.Column="1"
+                           Minimum="1"
+                           Maximum="16"
+                           Increment="1"
+                           FormatString="0"
+                           Value="{Binding TabSize, Mode=TwoWay}" />
+
+            <TextBlock Grid.Row="1" Classes="label" Text="{x:Static loc:Strings.Settings_Tabs}" VerticalAlignment="Center" />
+            <CheckBox Grid.Row="1"
+                      Grid.Column="1"
+                      Content="{x:Static loc:Strings.Settings_InsertSpaces}"
+                      IsChecked="{Binding ConvertTabsToSpaces, Mode=TwoWay}" />
+          </Grid>
+
+          <WrapPanel ItemSpacing="26" LineSpacing="4">
+            <CheckBox Content="{x:Static loc:Strings.Settings_WordWrap}" IsChecked="{Binding WordWrap, Mode=TwoWay}" />
+            <CheckBox Content="{x:Static loc:Strings.Settings_LineNumbers}" IsChecked="{Binding ShowLineNumbers, Mode=TwoWay}" />
+            <CheckBox Content="{x:Static loc:Strings.Settings_ShowWhitespace}" IsChecked="{Binding ShowWhitespace, Mode=TwoWay}" />
+            <CheckBox Content="{x:Static loc:Strings.Settings_ShowEol}" IsChecked="{Binding ShowEndOfLine, Mode=TwoWay}" />
+            <CheckBox Content="{x:Static loc:Strings.Settings_HighlightLine}" IsChecked="{Binding HighlightCurrentLine, Mode=TwoWay}" />
+            <CheckBox Content="{x:Static loc:Strings.Settings_ColumnRuler}" IsChecked="{Binding EnableColumnRuler, Mode=TwoWay}" />
+          </WrapPanel>
+        </StackPanel>
+
+        <StackPanel Spacing="8">
+          <TextBlock Classes="section-title" Text="{x:Static loc:Strings.Settings_Session}" />
+          <CheckBox Content="{x:Static loc:Strings.Settings_RestoreSession}"
+                    IsChecked="{Binding RestoreSession, Mode=TwoWay}" />
+          <CheckBox Content="{x:Static loc:Strings.Settings_KeepUnsaved}"
+                    IsChecked="{Binding RecoveryEnabled, Mode=TwoWay}" />
+        </StackPanel>
+      </StackPanel>
+    </ScrollViewer>
+
+    <Border Grid.Row="1"
+            Background="{DynamicResource ChromeBackgroundBrush}"
+            BorderBrush="{DynamicResource PanelBorderBrush}"
+            BorderThickness="0,1,0,0"
+            Padding="20,14">
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="8">
+        <Button Content="{x:Static loc:Strings.Settings_Cancel}" Classes="ghost" IsCancel="True" Click="OnCancelClick" />
+        <Button Content="{x:Static loc:Strings.Settings_Save}"
+                Classes="accent"
+                IsEnabled="{Binding IsAccentColorValid}"
+                IsDefault="True"
+                Click="OnSaveClick" />
+      </StackPanel>
+    </Border>
+  </Grid>
+</Window>

@@ -1,0 +1,48 @@
+<Window
+        xmlns:loc="using:NotepadMoreOS.Resources" xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="NotepadMoreOS.Views.Dialogs.SaveChangesWindow"
+        Width="500"
+        SizeToContent="Height"
+        CanResize="False"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner"
+        Background="{DynamicResource AppBackgroundBrush}">
+  <Border Padding="26,24,26,20">
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="14">
+      <TextBlock FontSize="17"
+                 FontWeight="SemiBold"
+                 Foreground="{DynamicResource TextPrimaryBrush}"
+                 Text="Save changes?" />
+
+      <TextBlock x:Name="MessageText"
+                 Grid.Row="1"
+                 FontSize="13"
+                 LineHeight="20"
+                 Foreground="{DynamicResource TextSecondaryBrush}"
+                 TextWrapping="Wrap" />
+
+      <TextBlock Grid.Row="2"
+                 FontSize="12"
+                 Foreground="{DynamicResource TextSecondaryBrush}"
+                 Text="Your changes will be lost if you don't save them." />
+
+      <StackPanel Grid.Row="3"
+                  Orientation="Horizontal"
+                  HorizontalAlignment="Right"
+                  Spacing="8">
+        <Button Content="{x:Static loc:Strings.Settings_Cancel}"
+                Classes="ghost"
+                IsCancel="True"
+                Click="OnCancelClick" />
+        <Button Content="{x:Static loc:Strings.Dialog_DontSaveButton}"
+                Classes="ghost danger-text"
+                Click="OnDontSaveClick" />
+        <Button Content="{x:Static loc:Strings.Menu_Save}"
+                Classes="accent"
+                IsDefault="True"
+                Click="OnSaveClick" />
+      </StackPanel>
+    </Grid>
+  </Border>
+</Window>

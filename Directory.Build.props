@@ -1,0 +1,10 @@
+<Project>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Version>1.7.1</Version>
+    <Authors>NotepadMoreOS contributors</Authors>
+    <Product>NotepadMoreOS</Product>
+  </PropertyGroup>
+</Project>

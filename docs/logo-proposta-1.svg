@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x2="0.9" y2="1"><stop stop-color="#f8fbfd"/><stop offset="1" stop-color="#e7edf4"/></linearGradient>
+    <linearGradient id="glass" x2=".9" y2="1"><stop stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#dce8f3" stop-opacity=".55"/></linearGradient>
+    <linearGradient id="page" x2=".8" y2="1"><stop stop-color="#172b50"/><stop offset=".58" stop-color="#102447"/><stop offset="1" stop-color="#342c6f"/></linearGradient>
+    <linearGradient id="cyan" x2="1" y2="1"><stop stop-color="#55f3eb"/><stop offset="1" stop-color="#08b9e8"/></linearGradient>
+    <linearGradient id="violet" x2="1" y2="1"><stop stop-color="#c4a0ff"/><stop offset="1" stop-color="#8466ed"/></linearGradient>
+    <filter id="shadow" x="-.3" y="-.3" width="1.6" height="1.7"><feGaussianBlur in="SourceAlpha" stdDeviation="24"/><feOffset dy="24"/><feComponentTransfer><feFuncA type="linear" slope=".2"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow" x="-.5" y="-.5" width="2" height="2"><feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1024" height="1024" rx="210" fill="url(#bg)"/>
+  <g fill="url(#glass)" stroke="#fff" stroke-width="12" filter="url(#shadow)">
+    <rect x="178" y="170" width="668" height="668" rx="142" opacity=".55"/>
+    <rect x="204" y="194" width="616" height="616" rx="126" opacity=".72"/>
+    <rect x="230" y="218" width="564" height="564" rx="112" opacity=".9"/>
+  </g>
+  <g filter="url(#shadow)">
+    <path d="M358 254h222l112 112v340c0 25-20 45-45 45H358c-25 0-45-20-45-45V299c0-25 20-45 45-45z" fill="url(#page)" stroke="#80f3f5" stroke-opacity=".5" stroke-width="5"/>
+    <path d="M580 254v76c0 20 16 36 36 36h76z" fill="url(#cyan)"/>
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+      <path d="M381 348q-18 0-18 18v12q0 12-13 18 13 5 13 18v12q0 18 18 18M421 348q18 0 18 18v12q0 12 13 18-13 5-13 18v12q0 18-18 18" stroke="#6cebe9" stroke-width="13"/>
+      <path d="M474 376h91M474 407h58" stroke="#5bdfea" stroke-width="13"/>
+      <path d="M437 488l-53 47 53 47M587 488l53 47-53 47M526 476l-27 119" stroke="url(#cyan)" stroke-width="23"/>
+      <path d="M397 656h210M397 690h87M513 690h93" stroke="url(#violet)" stroke-width="12"/>
+    </g>
+    <circle cx="664" cy="676" r="58" fill="#08bdad" stroke="#d5fffa" stroke-width="8"/>
+    <path d="M664 650v52M638 676h52" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+  </g>
+</svg>

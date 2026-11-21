@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="tile" x2="1" y2="1"><stop stop-color="#233f70"/><stop offset=".55" stop-color="#101f3c"/><stop offset="1" stop-color="#090f23"/></linearGradient>
+    <linearGradient id="sheet" x2=".9" y2="1"><stop stop-color="#f8ffff"/><stop offset="1" stop-color="#dbe9f5"/></linearGradient>
+    <linearGradient id="fold" x2="1" y2="1"><stop stop-color="#67f6ec"/><stop offset="1" stop-color="#11b9dc"/></linearGradient>
+    <linearGradient id="accent" x2="1" y2="1"><stop stop-color="#49f2e4"/><stop offset="1" stop-color="#b07cff"/></linearGradient>
+    <filter id="shadow" x="-.3" y="-.3" width="1.6" height="1.7"><feGaussianBlur in="SourceAlpha" stdDeviation="26"/><feOffset dy="22"/><feComponentTransfer><feFuncA type="linear" slope=".42"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="glow" x="-.5" y="-.5" width="2" height="2"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect x="28" y="28" width="968" height="968" rx="220" fill="url(#tile)"/>
+  <rect x="49" y="49" width="926" height="926" rx="202" fill="none" stroke="#9db8ec" stroke-opacity=".18" stroke-width="3"/>
+  <circle cx="790" cy="220" r="240" fill="#39d9e2" opacity=".08"/>
+  <circle cx="220" cy="800" r="270" fill="#9363ed" opacity=".09"/>
+  <g filter="url(#shadow)">
+    <path d="M312 172h298l151 151v428c0 32-26 58-58 58H312c-32 0-58-26-58-58V230c0-32 26-58 58-58z" fill="url(#sheet)"/>
+    <path d="M610 172v104c0 26 21 47 47 47h104z" fill="url(#fold)"/>
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M343 372h49M430 372h152M343 412h112" stroke="#6f87a4" stroke-width="15"/>
+      <path d="M394 499l-57 52 57 52M583 499l57 52-57 52M505 483l-28 137" stroke="url(#accent)" stroke-width="27" filter="url(#glow)"/>
+      <path d="M345 677h226M345 716h132" stroke="#4ccfc9" stroke-width="15"/>
+    </g>
+    <circle cx="699" cy="698" r="78" fill="#102443" stroke="#c8fff7" stroke-width="9"/>
+    <circle cx="699" cy="698" r="61" fill="#14c8a9"/>
+    <path d="M699 667v62M668 698h62" stroke="#fff" stroke-width="15" stroke-linecap="round"/>
+  </g>
+</svg>

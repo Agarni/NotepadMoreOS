@@ -1,0 +1,41 @@
+<UserControl
+        xmlns:loc="using:NotepadMoreOS.Resources" xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:edit="using:AvaloniaEdit"
+             xmlns:controls="using:NotepadMoreOS.Controls"
+             xmlns:vm="using:NotepadMoreOS.ViewModels"
+             x:Class="NotepadMoreOS.Views.DocumentView"
+             x:DataType="vm:DocumentViewModel">
+  <Grid Background="{DynamicResource EditorBackgroundBrush}">
+    <controls:NotepadTextEditor Name="Editor"
+                     Options="{Binding EditorSettings.EditorOptions}"
+                     WordWrap="{Binding EditorSettings.WordWrap}"
+                     ShowLineNumbers="{Binding EditorSettings.ShowLineNumbers}"
+                     FontFamily="{Binding EditorSettings.EditorFontFamily}"
+                     FontSize="{Binding EffectiveFontSize}"
+                     IsReadOnly="{Binding IsReadOnly}"
+                     HorizontalScrollBarVisibility="Auto"
+                     VerticalScrollBarVisibility="Auto"
+                     LineNumbersMargin="12,4,16,0"
+                     Background="{DynamicResource EditorBackgroundBrush}"
+                     Foreground="{DynamicResource TextPrimaryBrush}"
+                     Padding="0,4,0,0">
+      <controls:NotepadTextEditor.ContextFlyout>
+        <MenuFlyout>
+          <MenuItem Header="{x:Static loc:Strings.Menu_Undo}" Click="OnUndoClick" />
+          <MenuItem Header="{x:Static loc:Strings.Menu_Redo}" Click="OnRedoClick" />
+          <Separator />
+          <MenuItem Header="{x:Static loc:Strings.Menu_Cut}" Click="OnCutClick" />
+          <MenuItem Header="{x:Static loc:Strings.Menu_Copy}" Click="OnCopyClick" />
+          <MenuItem Header="{x:Static loc:Strings.Menu_Paste}" Click="OnPasteClick" />
+          <Separator />
+          <MenuItem Header="Duplicate line" Click="OnDuplicateLineClick" />
+          <MenuItem Header="Delete line" Click="OnDeleteLineClick" />
+          <MenuItem Header="Toggle comment" Click="OnToggleCommentClick" />
+          <Separator />
+          <MenuItem Header="Select all" Click="OnSelectAllClick" />
+        </MenuFlyout>
+      </controls:NotepadTextEditor.ContextFlyout>
+    </controls:NotepadTextEditor>
+  </Grid>
+</UserControl>

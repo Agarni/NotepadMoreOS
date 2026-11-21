@@ -1,0 +1,100 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ResourceDictionary.ThemeDictionaries>
+    <ResourceDictionary x:Key="Dark">
+      <Color x:Key="SystemAccentColor">#5BD08E</Color>
+      <Color x:Key="SystemAccentColorLight1">#72E5A3</Color>
+      <Color x:Key="SystemAccentColorLight2">#8CEFB8</Color>
+      <Color x:Key="SystemAccentColorLight3">#A9F5C9</Color>
+      <Color x:Key="SystemAccentColorDark1">#4BBB7F</Color>
+      <Color x:Key="SystemAccentColorDark2">#3A9E69</Color>
+      <Color x:Key="SystemAccentColorDark3">#2A7F53</Color>
+      <SolidColorBrush x:Key="AppBackgroundBrush" Color="#0F1013" />
+      <SolidColorBrush x:Key="ChromeBackgroundBrush" Color="#17191E" />
+      <SolidColorBrush x:Key="ChromeBackgroundAltBrush" Color="#20232A" />
+      <SolidColorBrush x:Key="ElevatedSurfaceBrush" Color="#1D2026" />
+      <SolidColorBrush x:Key="ToolbarGroupBrush" Color="#12FFFFFF" />
+      <SolidColorBrush x:Key="TabBarBackgroundBrush" Color="#121418" />
+      <SolidColorBrush x:Key="TabActiveBrush" Color="#1E2128" />
+      <SolidColorBrush x:Key="TabCloseHoverBrush" Color="#2E333D" />
+      <SolidColorBrush x:Key="TextPrimaryBrush" Color="#ECEEF2" />
+      <SolidColorBrush x:Key="TextSecondaryBrush" Color="#98A0AC" />
+      <SolidColorBrush x:Key="PanelBorderBrush" Color="#2A2E36" />
+      <SolidColorBrush x:Key="StrongBorderBrush" Color="#3A3F49" />
+      <SolidColorBrush x:Key="HoverBrush" Color="#242830" />
+      <SolidColorBrush x:Key="SelectedBrush" Color="#22362C" />
+      <SolidColorBrush x:Key="AccentBrush" Color="#5BD08E" />
+      <SolidColorBrush x:Key="AccentForegroundBrush" Color="#FFFFFF" />
+      <SolidColorBrush x:Key="AccentHoverBrush" Color="#72E5A3" />
+      <SolidColorBrush x:Key="AccentSoftBrush" Color="#1D3A2B" />
+      <SolidColorBrush x:Key="DangerBrush" Color="#F07067" />
+      <SolidColorBrush x:Key="StatusBackgroundBrush" Color="#17191E" />
+      <SolidColorBrush x:Key="FindBarBackgroundBrush" Color="#1E2128" />
+      <SolidColorBrush x:Key="EditorBackgroundBrush" Color="#17191E" />
+      <SolidColorBrush x:Key="EditorSelectionBrush" Color="#355C46" />
+      <SolidColorBrush x:Key="EditorLineHighlightBrush" Color="#14FFFFFF" />
+      <SolidColorBrush x:Key="ScrollThumbBrush" Color="#474D58" />
+      <LinearGradientBrush x:Key="AccentGradientBrush" StartPoint="0%,0%" EndPoint="100%,100%">
+        <GradientStop Color="#2A9D63" Offset="0" />
+        <GradientStop Color="#6EE7A8" Offset="1" />
+      </LinearGradientBrush>
+      <RadialGradientBrush x:Key="WelcomeGlowBrush" Center="50%,50%" GradientOrigin="50%,50%" RadiusX="50%" RadiusY="50%">
+        <GradientStop Color="#335BD08E" Offset="0" />
+        <GradientStop Color="#005BD08E" Offset="1" />
+      </RadialGradientBrush>
+      <LinearGradientBrush x:Key="WorkspaceBarBrush" StartPoint="0%,0%" EndPoint="100%,0%">
+        <GradientStop Color="#1B1829" Offset="0" />
+        <GradientStop Color="#171A23" Offset="0.45" />
+        <GradientStop Color="#121419" Offset="1" />
+      </LinearGradientBrush>
+    </ResourceDictionary>
+
+    <ResourceDictionary x:Key="Light">
+      <Color x:Key="SystemAccentColor">#20895A</Color>
+      <Color x:Key="SystemAccentColorLight1">#2A9E6A</Color>
+      <Color x:Key="SystemAccentColorLight2">#34B47A</Color>
+      <Color x:Key="SystemAccentColorLight3">#4CC98A</Color>
+      <Color x:Key="SystemAccentColorDark1">#176F49</Color>
+      <Color x:Key="SystemAccentColorDark2">#125D3C</Color>
+      <Color x:Key="SystemAccentColorDark3">#0C4A2F</Color>
+      <SolidColorBrush x:Key="AppBackgroundBrush" Color="#F4F6F8" />
+      <SolidColorBrush x:Key="ChromeBackgroundBrush" Color="#EBEEF2" />
+      <SolidColorBrush x:Key="ChromeBackgroundAltBrush" Color="#E1E5EA" />
+      <SolidColorBrush x:Key="ElevatedSurfaceBrush" Color="#FFFFFF" />
+      <SolidColorBrush x:Key="ToolbarGroupBrush" Color="#0A000000" />
+      <SolidColorBrush x:Key="TabBarBackgroundBrush" Color="#E8EBEF" />
+      <SolidColorBrush x:Key="TabActiveBrush" Color="#FFFFFF" />
+      <SolidColorBrush x:Key="TabCloseHoverBrush" Color="#DCE2EA" />
+      <SolidColorBrush x:Key="TextPrimaryBrush" Color="#1B2026" />
+      <SolidColorBrush x:Key="TextSecondaryBrush" Color="#5C6570" />
+      <SolidColorBrush x:Key="PanelBorderBrush" Color="#D7DCE2" />
+      <SolidColorBrush x:Key="StrongBorderBrush" Color="#C2C9D2" />
+      <SolidColorBrush x:Key="HoverBrush" Color="#E6EAEF" />
+      <SolidColorBrush x:Key="SelectedBrush" Color="#DCF3E6" />
+      <SolidColorBrush x:Key="AccentBrush" Color="#20895A" />
+      <SolidColorBrush x:Key="AccentForegroundBrush" Color="#FFFFFF" />
+      <SolidColorBrush x:Key="AccentHoverBrush" Color="#176F49" />
+      <SolidColorBrush x:Key="AccentSoftBrush" Color="#E0F4E9" />
+      <SolidColorBrush x:Key="DangerBrush" Color="#C0392B" />
+      <SolidColorBrush x:Key="StatusBackgroundBrush" Color="#EBEEF2" />
+      <SolidColorBrush x:Key="FindBarBackgroundBrush" Color="#FFFFFF" />
+      <SolidColorBrush x:Key="EditorBackgroundBrush" Color="#FFFFFF" />
+      <SolidColorBrush x:Key="EditorSelectionBrush" Color="#C7EBD8" />
+      <SolidColorBrush x:Key="EditorLineHighlightBrush" Color="#0D000000" />
+      <SolidColorBrush x:Key="ScrollThumbBrush" Color="#BFC6CF" />
+      <LinearGradientBrush x:Key="AccentGradientBrush" StartPoint="0%,0%" EndPoint="100%,100%">
+        <GradientStop Color="#177A4D" Offset="0" />
+        <GradientStop Color="#4CC98A" Offset="1" />
+      </LinearGradientBrush>
+      <RadialGradientBrush x:Key="WelcomeGlowBrush" Center="50%,50%" GradientOrigin="50%,50%" RadiusX="50%" RadiusY="50%">
+        <GradientStop Color="#2620895A" Offset="0" />
+        <GradientStop Color="#0020895A" Offset="1" />
+      </RadialGradientBrush>
+      <LinearGradientBrush x:Key="WorkspaceBarBrush" StartPoint="0%,0%" EndPoint="100%,0%">
+        <GradientStop Color="#FFFFFF" Offset="0" />
+        <GradientStop Color="#F7F9FC" Offset="0.45" />
+        <GradientStop Color="#F1F4F8" Offset="1" />
+      </LinearGradientBrush>
+    </ResourceDictionary>
+  </ResourceDictionary.ThemeDictionaries>
+</ResourceDictionary>

@@ -1,0 +1,40 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="NotepadMoreOS.Views.Dialogs.MessageWindow"
+        Width="480"
+        SizeToContent="Height"
+        CanResize="False"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner"
+        Background="{DynamicResource AppBackgroundBrush}">
+  <Border Padding="26,24,26,20">
+    <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="16">
+      <TextBlock x:Name="TitleText"
+                 FontSize="17"
+                 FontWeight="SemiBold"
+                 Foreground="{DynamicResource TextPrimaryBrush}"
+                 TextWrapping="Wrap" />
+
+      <TextBlock x:Name="MessageText"
+                 Grid.Row="1"
+                 FontSize="13"
+                 LineHeight="20"
+                 Foreground="{DynamicResource TextSecondaryBrush}"
+                 TextWrapping="Wrap" />
+
+      <StackPanel Grid.Row="2"
+                  Orientation="Horizontal"
+                  HorizontalAlignment="Right"
+                  Spacing="8">
+        <Button x:Name="SecondaryButton"
+                Classes="ghost"
+                IsCancel="True"
+                Click="OnSecondaryClick" />
+        <Button x:Name="PrimaryButton"
+                Classes="accent"
+                IsDefault="True"
+                Click="OnPrimaryClick" />
+      </StackPanel>
+    </Grid>
+  </Border>
+</Window>
