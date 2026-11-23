@@ -132,7 +132,7 @@ Anexe sempre a versão da tag: o nome do arquivo precisa casar com a versão ins
 
 Os pacotes são assinados apenas em modo ad-hoc (macOS) e não têm assinatura Authenticode (Windows). Por isso:
 
-- macOS: primeira abertura exige **botão direito → Abrir** (ou remover a quarentena com `xattr`).
+- macOS: a primeira abertura é bloqueada. No macOS 15+ o **botão direito → Abrir** não existe mais. O caminho é `xattr -dr com.apple.quarantine /Applications/NotepadMoreOS.app` ou **Ajustes do Sistema → Privacidade e Segurança → Abrir Mesmo Assim**. O DMG gerado inclui um `LEIA-ME.txt` com essas instruções.
 - Windows: SmartScreen pede **Mais informações → Executar assim mesmo**.
 
 Para eliminar os avisos é necessário um certificado Apple Developer ID + notarização e um certificado de code signing na Windows; os scripts já isolam o passo de assinatura para facilitar essa troca.

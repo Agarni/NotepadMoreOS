@@ -101,7 +101,7 @@ jobs:
           body: |
             Instaladores do NotepadMoreOS.
 
-            - **macOS (Apple Silicon):** abra o `.dmg` e arraste para Aplicativos. Na primeira execução use botão direito → Abrir.
+            - **macOS (Apple Silicon):** abra o `.dmg` e arraste para Aplicativos. Como o app não é notarizado, a primeira abertura é bloqueada: rode `xattr -dr com.apple.quarantine /Applications/NotepadMoreOS.app` ou use **Ajustes do Sistema → Privacidade e Segurança → Abrir Mesmo Assim**. O DMG traz um `LEIA-ME.txt` com o passo a passo.
             - **Windows x64:** execute o `setup.exe`. Se o SmartScreen avisar, escolha "Mais informações" → "Executar assim mesmo".
             - **Linux:** `sudo apt install ./NotepadMoreOS-*-linux-amd64.deb` (Debian/Ubuntu) ou use o `.tar.gz` portátil.
 

@@ -14,7 +14,12 @@ O símbolo do NotepadMoreOS combina uma folha de código azul-escura, detalhes l
 
 ### Se você recebeu uma versão publicada
 
-**macOS:** abra o arquivo `.dmg`, arraste **NotepadMoreOS** para a pasta **Applications** e abra pela Launchpad ou Finder. Como o app ainda não é notarizado, o Gatekeeper bloqueia o primeiro duplo clique — use **botão direito → Abrir** (ou rode `xattr -dr com.apple.quarantine /Applications/NotepadMoreOS.app`).
+**macOS:** abra o arquivo `.dmg`, arraste **NotepadMoreOS** para a pasta **Applications** e abra pela Launchpad ou Finder. Como o app ainda não é notarizado pela Apple, o Gatekeeper bloqueia a primeira abertura. Para liberar:
+
+- **Terminal (mais rápido):** `xattr -dr com.apple.quarantine /Applications/NotepadMoreOS.app`
+- **Interface:** depois da tentativa bloqueada, abra **Ajustes do Sistema → Privacidade e Segurança**, role até **Segurança** e clique em **Abrir Mesmo Assim**.
+
+Em versões anteriores ao macOS 15 também funcionava o **botão direito → Abrir**; a Apple removeu esse atalho. O próprio DMG inclui um arquivo **LEIA-ME.txt** com essas instruções.
 
 **Windows:** execute o `NotepadMoreOS-<versão>-windows-x64-setup.exe` e siga o assistente. Você pode escolher criar atalho na área de trabalho, associar `.txt`, `.log` e `.md` e adicionar **Open with NotepadMoreOS** ao menu de contexto. O SmartScreen avisa por ser um binário sem assinatura: **Mais informações → Executar assim mesmo**.
 

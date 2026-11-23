@@ -4,7 +4,7 @@ Context for AI agents and developers working on **NotepadMoreOS**.
 
 ## Project
 
-A cross-platform Notepad++-inspired text/code editor built with **Avalonia 12.1.6**, **.NET 10**, **AvaloniaEdit 12**, **TextMateSharp** and **CommunityToolkit.Mvvm**. Current version: **1.7.2** (About dialog links to this repository, macOS DMG, Windows Inno Setup installer and Linux deb/tarball, English and Brazilian Portuguese UI, arrow navigation for overflowing tabs, selectable tab styles without hover fill, extended find search with escapes, live find match count, theme previews, configurable accent color palette, modernized brand icon, named sessions with unsaved drafts and prompt-free switching, tab context menu, crash recovery, encoding reopen, native macOS menu + custom title bar, external change detection, modern UI).
+A cross-platform Notepad++-inspired text/code editor built with **Avalonia 12.1.6**, **.NET 10**, **AvaloniaEdit 12**, **TextMateSharp** and **CommunityToolkit.Mvvm**. Current version: **1.7.3** (About dialog links to this repository, macOS DMG, Windows Inno Setup installer and Linux deb/tarball, English and Brazilian Portuguese UI, arrow navigation for overflowing tabs, selectable tab styles without hover fill, extended find search with escapes, live find match count, theme previews, configurable accent color palette, modernized brand icon, named sessions with unsaved drafts and prompt-free switching, tab context menu, crash recovery, encoding reopen, native macOS menu + custom title bar, external change detection, modern UI).
 
 - UI languages: English and Brazilian Portuguese, resolved from the persisted language preference or the system culture.
 - Documentation language: Portuguese (with this file in English for agents).

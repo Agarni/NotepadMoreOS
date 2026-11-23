@@ -62,14 +62,46 @@ codesign --force --deep --sign - "$app"
 codesign --verify --deep --strict "$app"
 
 rm -f "$dmg"
-create_dmg_fallback() {
-  local staging
-  staging="$(mktemp -d)"
-  cp -R "$app" "$staging/"
-  ln -s /Applications "$staging/Applications"
-  hdiutil create -volname "$app_name" -srcfolder "$staging" -ov -format UDZO "$dmg"
-  rm -rf "$staging"
-}
+
+# Staging folder shared by both paths so the DMG always contains the readme.
+staging="$(mktemp -d)"
+cp -R "$app" "$staging/"
+ln -s /Applications "$staging/Applications"
+cat > "$staging/LEIA-ME.txt" <<README
+NotepadMoreOS $version — instalação no macOS
+============================================
+
+1. Arraste o NotepadMoreOS para a pasta Aplicativos.
+2. Abra o app. A primeira abertura é bloqueada porque o aplicativo ainda
+   não é notarizado pela Apple.
+
+Para liberar, escolha uma opção:
+
+A) Terminal (mais rápido)
+   xattr -dr com.apple.quarantine /Applications/NotepadMoreOS.app
+   Depois abra o app normalmente.
+
+B) Ajustes do Sistema
+   Faça a tentativa de abertura, depois abra
+   Ajustes do Sistema → Privacidade e Segurança,
+   role até "Segurança" e clique em "Abrir Mesmo Assim".
+   Confirme com a senha ou Touch ID.
+
+O aviso é esperado e não indica vírus: o app é open source (MIT) e o
+código está em https://github.com/Agarni/NotepadMoreOS
+
+English
+-------
+1. Drag NotepadMoreOS to Applications.
+2. The first launch is blocked by Gatekeeper because the app is not notarized.
+   Either run:
+     xattr -dr com.apple.quarantine /Applications/NotepadMoreOS.app
+   or open System Settings → Privacy & Security, scroll to Security and
+   click "Open Anyway".
+README
+
+cleanup_staging() { rm -rf "$staging"; }
+trap cleanup_staging EXIT
 
 if command -v create-dmg >/dev/null 2>&1; then
   # create-dmg drives Finder through AppleScript; it can time out in automation,
@@ -78,19 +110,19 @@ if command -v create-dmg >/dev/null 2>&1; then
     --volname "$app_name" \
     --volicon "$app/Contents/Resources/AppIcon.icns" \
     --window-pos 200 120 \
-    --window-size 620 400 \
+    --window-size 620 420 \
     --icon-size 110 \
     --icon "$app_name.app" 160 190 \
     --hide-extension "$app_name.app" \
     --app-drop-link 460 190 \
     --no-internet-enable \
-    "$dmg" "$app"; then
+    "$dmg" "$staging"; then
     echo "create-dmg failed; falling back to hdiutil."
     rm -f "$root"/artifacts/rw.*.dmg
-    create_dmg_fallback
+    hdiutil create -volname "$app_name" -srcfolder "$staging" -ov -format UDZO "$dmg"
   fi
 else
-  create_dmg_fallback
+  hdiutil create -volname "$app_name" -srcfolder "$staging" -ov -format UDZO "$dmg"
 fi
 
 codesign --force --sign - "$dmg" 2>/dev/null || true
