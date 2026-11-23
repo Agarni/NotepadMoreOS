@@ -2,7 +2,7 @@
 
 O roadmap é uma prioridade, não uma promessa. Itens podem ser reordenados conforme feedback.
 
-## Estado atual (1.7.3)
+## Estado atual (1.7.4)
 
 - Editor multiaba com TextMate e 63 linguagens
 - Busca e substituição com regex, palavra inteira, match case, escopo de seleção e painel de resultados

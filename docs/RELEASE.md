@@ -69,6 +69,7 @@ Saída em `artifacts/` (ignorado pelo git — os binários não entram no reposi
 | Arquivo | Origem |
 |---|---|
 | `NotepadMoreOS-<v>-macOS-arm64.dmg` | `build-macos.sh` |
+| `NotepadMoreOS-<v>-macOS-arm64.zip` | `build-macos.sh` (app + `LEIA-ME.txt`) |
 | `NotepadMoreOS-<v>-windows-x64-setup.exe` | `build-windows.sh` (Inno Setup) |
 | `NotepadMoreOS-<v>-windows-x64.zip` | fallback sem Docker |
 | `NotepadMoreOS-<v>-linux-amd64.deb` | `build-linux.sh x64` |
@@ -132,7 +133,7 @@ Anexe sempre a versão da tag: o nome do arquivo precisa casar com a versão ins
 
 Os pacotes são assinados apenas em modo ad-hoc (macOS) e não têm assinatura Authenticode (Windows). Por isso:
 
-- macOS: a primeira abertura é bloqueada. No macOS 15+ o **botão direito → Abrir** não existe mais. O caminho é `xattr -dr com.apple.quarantine /Applications/NotepadMoreOS.app` ou **Ajustes do Sistema → Privacidade e Segurança → Abrir Mesmo Assim**. O DMG gerado inclui um `LEIA-ME.txt` com essas instruções.
+- macOS: o Gatekeeper bloqueia o **próprio `.dmg`** antes de montar, além da primeira abertura do app. Não existe solução pelo lado do pacote sem notarização: o fluxo é remover a quarentena (`xattr -d com.apple.quarantine …dmg`) ou usar o `.zip` e liberar o app em **Ajustes do Sistema → Privacidade e Segurança → Abrir Mesmo Assim**. Desde o macOS 15 o atalho **botão direito → Abrir** não existe.
 - Windows: SmartScreen pede **Mais informações → Executar assim mesmo**.
 
 Para eliminar os avisos é necessário um certificado Apple Developer ID + notarização e um certificado de code signing na Windows; os scripts já isolam o passo de assinatura para facilitar essa troca.

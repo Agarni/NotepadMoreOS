@@ -26,7 +26,9 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: NotepadMoreOS-macOS-arm64
-          path: artifacts/*.dmg
+          path: |
+            artifacts/*.dmg
+            artifacts/*macOS-*.zip
           if-no-files-found: error
 
   windows:
@@ -91,7 +93,7 @@ jobs:
       - name: Collect packages
         run: |
           mkdir -p release
-          find artifacts -type f \( -name '*.dmg' -o -name '*.exe' -o -name '*.deb' -o -name '*.tar.gz' -o -name '*windows-x64.zip' \) -exec cp {} release/ \;
+          find artifacts -type f \( -name '*.dmg' -o -name '*.exe' -o -name '*.deb' -o -name '*.tar.gz' -o -name '*.zip' \) -exec cp {} release/ \;
           ls -lh release
 
       - uses: softprops/action-gh-release@v2
@@ -101,8 +103,13 @@ jobs:
           body: |
             Instaladores do NotepadMoreOS.
 
-            - **macOS (Apple Silicon):** abra o `.dmg` e arraste para Aplicativos. Como o app não é notarizado, a primeira abertura é bloqueada: rode `xattr -dr com.apple.quarantine /Applications/NotepadMoreOS.app` ou use **Ajustes do Sistema → Privacidade e Segurança → Abrir Mesmo Assim**. O DMG traz um `LEIA-ME.txt` com o passo a passo.
+            > O app não é assinado/notarizado pela Apple. No macOS, o `.dmg` pode ser bloqueado
+            > **antes de montar** — nesse caso use o `.zip`, que abre sem problema.
+
+            - **macOS (Apple Silicon) — recomendado:** baixe o `.zip`, extraia e arraste o NotepadMoreOS para Aplicativos. Na primeira abertura o macOS bloqueia; vá em **Ajustes do Sistema → Privacidade e Segurança**, role até **Segurança** e clique em **Abrir Mesmo Assim**.
+            - **macOS (Apple Silicon) — `.dmg`:** se o sistema recusar abrir o disco, rode `xattr -d com.apple.quarantine ~/Downloads/NotepadMoreOS-*.dmg` no Terminal e abra de novo. (O atalho "botão direito → Abrir" não existe desde o macOS 15.)
             - **Windows x64:** execute o `setup.exe`. Se o SmartScreen avisar, escolha "Mais informações" → "Executar assim mesmo".
             - **Linux:** `sudo apt install ./NotepadMoreOS-*-linux-amd64.deb` (Debian/Ubuntu) ou use o `.tar.gz` portátil.
 
-            Os pacotes não são assinados/notarizados; os avisos de Gatekeeper e SmartScreen são esperados.
+            Os avisos de Gatekeeper e SmartScreen são esperados. Para eliminá-los seria necessário
+            um certificado Apple Developer ID + notarização e um certificado Authenticode.

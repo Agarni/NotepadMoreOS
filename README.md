@@ -2,13 +2,13 @@
 
 [![Build and test](https://github.com/Agarni/NotepadMoreOS/actions/workflows/build.yml/badge.svg)](https://github.com/Agarni/NotepadMoreOS/actions/workflows/build.yml)
 
-Um editor de texto e código multiplataforma inspirado no **Notepad++**, construído com **Avalonia 12**, **.NET 10** e **AvaloniaEdit**. Versão atual: **1.7.3**.
+Um editor de texto e código multiplataforma inspirado no **Notepad++**, construído com **Avalonia 12**, **.NET 10** e **AvaloniaEdit**. Versão atual: **1.7.4**.
 
 ## Download
 
 Os instaladores ficam em [Releases](https://github.com/Agarni/NotepadMoreOS/releases):
 
-- **macOS (Apple Silicon):** `.dmg` — arraste para Aplicativos. Na primeira abertura, libere com `xattr -dr com.apple.quarantine /Applications/NotepadMoreOS.app` ou em **Ajustes do Sistema → Privacidade e Segurança → Abrir Mesmo Assim**.
+- **macOS (Apple Silicon):** prefira o `.zip` — extraia e arraste para Aplicativos; na primeira abertura use **Ajustes do Sistema → Privacidade e Segurança → Abrir Mesmo Assim**. Se preferir o `.dmg` e ele nem montar, rode `xattr -d com.apple.quarantine ~/Downloads/NotepadMoreOS-*.dmg`.
 - **Windows x64:** `setup.exe` — assistente com atalhos e associações opcionais; o SmartScreen pede confirmação por não haver assinatura.
 - **Linux:** `.deb` (Debian/Ubuntu) com `sudo apt install ./NotepadMoreOS-*-linux-amd64.deb`, ou o `.tar.gz` portátil.
 

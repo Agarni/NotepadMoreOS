@@ -14,12 +14,25 @@ O símbolo do NotepadMoreOS combina uma folha de código azul-escura, detalhes l
 
 ### Se você recebeu uma versão publicada
 
-**macOS:** abra o arquivo `.dmg`, arraste **NotepadMoreOS** para a pasta **Applications** e abra pela Launchpad ou Finder. Como o app ainda não é notarizado pela Apple, o Gatekeeper bloqueia a primeira abertura. Para liberar:
+**macOS:** o app não é notarizado pela Apple, então o macOS bloqueia tanto o **disco de instalação** quanto a primeira abertura do app.
 
-- **Terminal (mais rápido):** `xattr -dr com.apple.quarantine /Applications/NotepadMoreOS.app`
-- **Interface:** depois da tentativa bloqueada, abra **Ajustes do Sistema → Privacidade e Segurança**, role até **Segurança** e clique em **Abrir Mesmo Assim**.
+1. Prefira o `.zip`: extraia, arraste **NotepadMoreOS** para a pasta **Applications**.
+2. Tente abrir. O macOS bloqueia e mostra um aviso.
+3. Abra **Ajustes do Sistema → Privacidade e Segurança**, role até **Segurança** e clique em **Abrir Mesmo Assim**. Confirme com Touch ID ou senha.
 
-Em versões anteriores ao macOS 15 também funcionava o **botão direito → Abrir**; a Apple removeu esse atalho. O próprio DMG inclui um arquivo **LEIA-ME.txt** com essas instruções.
+Se preferir o `.dmg` e o sistema recusar **abrir o próprio disco** (mensagem *“A Apple não pôde verificar se o item … está livre de malware”*), rode no Terminal e abra de novo:
+
+```bash
+xattr -d com.apple.quarantine ~/Downloads/NotepadMoreOS-*.dmg
+```
+
+Depois de arrastar o app para Aplicativos, a liberação também pode ser feita de uma vez:
+
+```bash
+xattr -dr com.apple.quarantine /Applications/NotepadMoreOS.app
+```
+
+O atalho **botão direito → Abrir** não existe mais desde o macOS 15. Os arquivos `LEIA-ME.txt` dentro do `.zip` e do `.dmg` repetem essas instruções.
 
 **Windows:** execute o `NotepadMoreOS-<versão>-windows-x64-setup.exe` e siga o assistente. Você pode escolher criar atalho na área de trabalho, associar `.txt`, `.log` e `.md` e adicionar **Open with NotepadMoreOS** ao menu de contexto. O SmartScreen avisa por ser um binário sem assinatura: **Mais informações → Executar assim mesmo**.
 

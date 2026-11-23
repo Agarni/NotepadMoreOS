@@ -2,15 +2,26 @@
 
 Todas as mudanças relevantes do NotepadMoreOS são registradas aqui.
 
+## [1.7.4] — 2026-11-23
+
+### Adicionado
+
+- **Pacote `.zip` para macOS**, publicado ao lado do `.dmg`. O macOS 15+ recusa montar discos não notarizados, então o `.dmg` pode ser bloqueado antes de abrir (mensagem *“A Apple não pôde verificar se o item … está livre de malware”*). O `.zip` extrai normalmente e o app instalado é liberado em **Ajustes do Sistema → Privacidade e Segurança → Abrir Mesmo Assim**.
+- O `LEIA-ME.txt` também acompanha o `.zip`, com as instruções nas duas situações (disco bloqueado e app bloqueado).
+
+### Corrigido
+
+- Notas da release e documentação deixam de sugerir abrir o `.dmg` como primeira opção, já que ele pode nem montar sem notarização.
+
 ## [1.7.3] — 2026-11-23
 
 ### Adicionado
 
-- **`LEIA-ME.txt` dentro do DMG** com o passo a passo para liberar o app no Gatekeeper, em português e inglês. Quem baixa pela release não precisa procurar as instruções fora do pacote.
+- **`LEIA-ME.txt` dentro do DMG** com o passo a passo para liberar o app no Gatekeeper, em português e inglês.
 
 ### Corrigido
 
-- Documentação do macOS desatualizada: orientava usar **botão direito → Abrir**, atalho que a Apple removeu no macOS 15. Agora o guia, o README e as notas da release indicam `xattr -dr com.apple.quarantine /Applications/NotepadMoreOS.app` ou **Ajustes do Sistema → Privacidade e Segurança → Abrir Mesmo Assim**.
+- Documentação do macOS desatualizada: orientava usar **botão direito → Abrir**, atalho que a Apple removeu no macOS 15.
 
 ## [1.7.2] — 2026-11-21
 

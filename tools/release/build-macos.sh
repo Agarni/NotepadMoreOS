@@ -71,33 +71,46 @@ cat > "$staging/LEIA-ME.txt" <<README
 NotepadMoreOS $version — instalação no macOS
 ============================================
 
-1. Arraste o NotepadMoreOS para a pasta Aplicativos.
-2. Abra o app. A primeira abertura é bloqueada porque o aplicativo ainda
-   não é notarizado pela Apple.
+Este aplicativo não é notarizado pela Apple, então o macOS bloqueia a
+primeira abertura. O arquivo .dmg também pode ser bloqueado antes de
+montar — nesse caso use o .zip, que é o caminho mais simples.
 
-Para liberar, escolha uma opção:
+SE VOCÊ BAIXOU O .ZIP
+---------------------
+1. Extraia o arquivo (duplo clique).
+2. Arraste NotepadMoreOS para a pasta Aplicativos.
+3. Tente abrir uma vez. O macOS bloqueia e mostra um aviso.
+4. Abra Ajustes do Sistema → Privacidade e Segurança, role até
+   "Segurança" e clique em "Abrir Mesmo Assim". Confirme com Touch ID
+   ou senha.
 
-A) Terminal (mais rápido)
+O atalho "botão direito → Abrir" não existe mais desde o macOS 15.
+
+SE VOCÊ BAIXOU O .DMG E ELE NÃO ABRE
+------------------------------------
+Rode no Terminal (Aplicativos → Utilitários → Terminal):
+
+   xattr -d com.apple.quarantine ~/Downloads/NotepadMoreOS-*.dmg
+
+Depois abra o DMG normalmente, arraste o app para Aplicativos e siga os
+passos 3 e 4 acima.
+
+Alternativa em uma linha, para o app já em Aplicativos:
+
    xattr -dr com.apple.quarantine /Applications/NotepadMoreOS.app
-   Depois abra o app normalmente.
-
-B) Ajustes do Sistema
-   Faça a tentativa de abertura, depois abra
-   Ajustes do Sistema → Privacidade e Segurança,
-   role até "Segurança" e clique em "Abrir Mesmo Assim".
-   Confirme com a senha ou Touch ID.
 
 O aviso é esperado e não indica vírus: o app é open source (MIT) e o
 código está em https://github.com/Agarni/NotepadMoreOS
 
 English
 -------
-1. Drag NotepadMoreOS to Applications.
-2. The first launch is blocked by Gatekeeper because the app is not notarized.
-   Either run:
-     xattr -dr com.apple.quarantine /Applications/NotepadMoreOS.app
-   or open System Settings → Privacy & Security, scroll to Security and
-   click "Open Anyway".
+NotepadMoreOS is not notarized by Apple, so the first launch is blocked.
+If the .dmg will not even mount, download the .zip instead:
+  1. Extract it and drag NotepadMoreOS to Applications.
+  2. Try to open it once, then go to System Settings → Privacy & Security,
+     scroll to Security and click "Open Anyway".
+Or remove the quarantine flag in Terminal:
+  xattr -dr com.apple.quarantine /Applications/NotepadMoreOS.app
 README
 
 cleanup_staging() { rm -rf "$staging"; }
@@ -127,4 +140,16 @@ fi
 
 codesign --force --sign - "$dmg" 2>/dev/null || true
 
+# MacOS blocks unsigned disk images before mounting them on macOS 15+, so a zip
+# of the .app is published as well: extracting it and allowing the app from
+# System Settings is the only flow that works without the Terminal.
+zip_file="$root/artifacts/${app_name}-${version}-macOS-${arch}.zip"
+rm -f "$zip_file"
+zip_stage="$(mktemp -d)"
+cp -R "$app" "$zip_stage/"
+cp "$staging/LEIA-ME.txt" "$zip_stage/"
+(cd "$zip_stage" && zip -r -q -X -y "$zip_file" "$app_name.app" "LEIA-ME.txt")
+rm -rf "$zip_stage"
+
 echo "DMG: $dmg ($(du -h "$dmg" | cut -f1))"
+echo "ZIP: $zip_file ($(du -h "$zip_file" | cut -f1))"
