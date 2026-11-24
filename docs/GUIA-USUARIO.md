@@ -171,6 +171,8 @@ Recursos úteis:
 
 A indentação é automática: ao pressionar Enter, a linha seguinte copia a indentação anterior. Em arquivos C#, o editor também ajusta blocos entre chaves.
 
+Guias discretas mostram os níveis de indentação nas linhas visíveis. Em JSON, JSONC e XML, use os marcadores na margem para recolher e expandir blocos; o texto continua no documento e será salvo integralmente.
+
 ## 6. Abas e sessão
 
 - Troque de aba clicando nela.
@@ -493,6 +495,8 @@ Sim. O projeto usa a licença MIT; consulte [LICENSE](../LICENSE).
 Abra uma issue no repositório do projeto com passos para reproduzir, sistema operacional e versão do NotepadMoreOS.
 
 ## 15. Limitações atuais
+
+O histórico de alterações incluído nesta versão pode ser consultado offline em **Help → About → Histórico de alterações**. O conteúdo está em português. Na mesma janela, **Verificar atualizações** consulta a última release estável no GitHub e oferece um link para os downloads quando há uma versão mais recente. A instalação é manual.
 
 - Sem impressão.
 - Sem macros ou plugins.

@@ -2,7 +2,7 @@
 
 O roadmap é uma prioridade, não uma promessa. Itens podem ser reordenados conforme feedback.
 
-## Estado atual (1.7.5)
+## Estado atual (1.7.6)
 
 - Editor multiaba com TextMate e 63 linguagens
 - Busca e substituição com regex, palavra inteira, match case, escopo de seleção e painel de resultados
@@ -20,6 +20,7 @@ O roadmap é uma prioridade, não uma promessa. Itens podem ser reordenados conf
 - Testes automatizados e ferramenta de screenshots headless
 
 - Visualização temporária por aba, prévia Markdown, formatação de JSON, JSONC e XML e destaque configurável de pares de delimitadores.
+- Guias de indentação, recolhimento de blocos JSON/JSONC/XML e verificação manual de releases na janela Sobre.
 
 ## Próximo
 
@@ -48,6 +49,7 @@ O roadmap é uma prioridade, não uma promessa. Itens podem ser reordenados conf
 - Suporte a arquivos muito grandes (carregamento virtualizado)
 - UDL (User Defined Languages)
 - Atualização automática
+- Recolhimento de blocos para outras linguagens
 - Múltiplas janelas
 - Wayland/nativo e polimento por plataforma
 

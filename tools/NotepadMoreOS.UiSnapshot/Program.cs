@@ -343,6 +343,21 @@ internal static class Program
 
         Console.WriteLine("Tab content switching OK");
 
+        secondNewDocument.Document.Text = "{\n  \"items\": [\n    1\n  ]\n}";
+        secondNewDocument.Language = languageService.FindById("json");
+        Pump();
+        var foldingMargin = window.GetVisualDescendants().OfType<AvaloniaEdit.Folding.FoldingMargin>().FirstOrDefault();
+        var folds = foldingMargin?.FoldingManager?.AllFoldings.ToArray();
+        if (folds is null || folds.Length != 2)
+            throw new InvalidOperationException("JSON folding regions were not installed.");
+        folds[0].IsFolded = true;
+        Pump();
+        if (!folds[0].IsFolded || !secondNewDocument.Document.Text.Contains("items", StringComparison.Ordinal))
+            throw new InvalidOperationException("Folding changed the document or failed to collapse.");
+        folds[0].IsFolded = false;
+        Pump();
+        Console.WriteLine("JSON folding OK");
+
         // Regression guard: many tabs expose arrow navigation instead of a scrollbar.
         for (var index = 0; index < 10; index++)
         {

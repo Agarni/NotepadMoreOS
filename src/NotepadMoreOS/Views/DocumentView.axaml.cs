@@ -7,6 +7,7 @@ using Avalonia.Threading;
 using AvaloniaEdit;
 using AvaloniaEdit.Indentation;
 using AvaloniaEdit.Indentation.CSharp;
+using AvaloniaEdit.Folding;
 using AvaloniaEdit.TextMate;
 using NotepadMoreOS.Services;
 using NotepadMoreOS.ViewModels;
@@ -21,6 +22,9 @@ public partial class DocumentView : UserControl
     private TextMateInstallation? _textMate;
     private bool _attached;
     private readonly BracketHighlightRenderer _bracketRenderer = new();
+    private readonly IndentGuideRenderer _indentGuides = new();
+    private FoldingManager? _folding;
+    private DispatcherTimer? _foldTimer;
 
     public DocumentView()
     {
@@ -68,6 +72,11 @@ public partial class DocumentView : UserControl
         UpdatePreviewLayout();
         editor.Document = viewModel.Document;
         editor.TextArea.TextView.BackgroundRenderers.Add(_bracketRenderer);
+        editor.TextArea.TextView.BackgroundRenderers.Add(_indentGuides);
+        _folding = FoldingManager.Install(editor.TextArea);
+        _foldTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(500) };
+        _foldTimer.Tick += OnFoldTimer;
+        UpdateFoldings();
         editor.Document.Changed += OnDocumentChanged;
         _viewModel.Host = new EditorHost(editor);
 
@@ -132,6 +141,10 @@ public partial class DocumentView : UserControl
         if (_editor is not null)
         {
             _editor.TextArea.TextView.BackgroundRenderers.Remove(_bracketRenderer);
+            _editor.TextArea.TextView.BackgroundRenderers.Remove(_indentGuides);
+            if (_folding is not null) FoldingManager.Uninstall(_folding);
+            _folding = null;
+            if (_foldTimer is not null) { _foldTimer.Stop(); _foldTimer.Tick -= OnFoldTimer; _foldTimer = null; }
             _editor.Document.Changed -= OnDocumentChanged;
             _editor.TextArea.Caret.PositionChanged -= OnCaretChanged;
             _editor.TextArea.SelectionChanged -= OnSelectionChanged;
@@ -228,6 +241,9 @@ public partial class DocumentView : UserControl
         var lineHighlight = isDark ? Color.FromArgb(18, 255, 255, 255) : Color.FromArgb(13, 0, 0, 0);
 
         _bracketRenderer.Brush = new SolidColorBrush(isDark ? Color.FromArgb(100, 120, 170, 230) : Color.FromArgb(110, 90, 145, 210));
+        _indentGuides.Pen = new Pen(new SolidColorBrush(isDark ? Color.FromArgb(55, 200, 200, 200) : Color.FromArgb(45, 50, 50, 50)), 1);
+        _indentGuides.IndentSize = _viewModel?.EditorSettings.TabSize ?? 4;
+        _editor.TextArea.TextView.InvalidateLayer(AvaloniaEdit.Rendering.KnownLayer.Background);
         _editor.TextArea.TextView.InvalidateLayer(AvaloniaEdit.Rendering.KnownLayer.Selection);
         _editor.Background = new SolidColorBrush(background);
         _editor.Foreground = new SolidColorBrush(foreground);
@@ -307,7 +323,23 @@ public partial class DocumentView : UserControl
         _viewModel.UpdateCaret(_editor.TextArea.Caret.Line, _editor.TextArea.Caret.Column, _editor.SelectionLength);
     }
 
-    private void OnDocumentChanged(object? sender, AvaloniaEdit.Document.DocumentChangeEventArgs e) => UpdateBracketHighlight();
+    private void OnDocumentChanged(object? sender, AvaloniaEdit.Document.DocumentChangeEventArgs e)
+    {
+        UpdateBracketHighlight();
+        _foldTimer?.Stop();
+        _foldTimer?.Start();
+    }
+
+    private void OnFoldTimer(object? sender, EventArgs e) { _foldTimer?.Stop(); UpdateFoldings(); }
+
+    private void UpdateFoldings()
+    {
+        if (_folding is null || _editor?.Document is not { } document || _viewModel is null) return;
+        var id = _viewModel.Language.Id;
+        if (id is "json" or "jsonc") _folding.UpdateFoldings(JsonFoldingService.Find(document.Text), -1);
+        else if (id is "xml" or "xsl" or "xsd") new XmlFoldingStrategy().UpdateFoldings(_folding, document);
+        else _folding.UpdateFoldings(Array.Empty<NewFolding>(), -1);
+    }
 
     private void UpdateBracketHighlight()
     {
@@ -335,6 +367,8 @@ public partial class DocumentView : UserControl
         if (e.PropertyName == nameof(DocumentViewModel.DisplayOptions))
         {
             UpdateBracketHighlight();
+            _indentGuides.IndentSize = _viewModel?.EditorSettings.TabSize ?? 4;
+            _editor?.TextArea.TextView.InvalidateLayer(AvaloniaEdit.Rendering.KnownLayer.Background);
         }
         else if (e.PropertyName == nameof(DocumentViewModel.ShowMarkdownPreview))
         {
@@ -344,13 +378,17 @@ public partial class DocumentView : UserControl
         {
             ApplyGrammar();
             ApplyIndentation();
+            UpdateFoldings();
         }
         else if (e.PropertyName == nameof(DocumentViewModel.Document) && _editor is not null && _viewModel is not null)
         {
             _editor.Document.Changed -= OnDocumentChanged;
+            if (_folding is not null) FoldingManager.Uninstall(_folding);
             _editor.Document = _viewModel.Document;
             _editor.Document.Changed += OnDocumentChanged;
             UpdateBracketHighlight();
+            _folding = FoldingManager.Install(_editor.TextArea);
+            UpdateFoldings();
         }
     }
 

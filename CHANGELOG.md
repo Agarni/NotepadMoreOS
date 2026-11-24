@@ -2,7 +2,13 @@
 
 Todas as mudanças relevantes do NotepadMoreOS são registradas aqui.
 
-## [Não publicado]
+## [1.7.6] — 2026-11-24
+
+### Adicionado
+
+- Histórico de alterações disponível offline na janela Sobre.
+- Verificação manual de novas versões na janela Sobre, com acesso aos downloads da release.
+- Guias discretas de indentação no editor e recolhimento de blocos JSON, JSONC e XML pela margem.
 
 ## [1.7.5] — 2026-11-23
 

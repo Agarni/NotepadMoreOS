@@ -124,6 +124,13 @@ Welcome_OpenFile|Open file|Abrir arquivo
 Welcome_RecentHeader|RECENT FILES|ARQUIVOS RECENTES
 Welcome_Tip|Tip: drag files anywhere into the window to open them.|Dica: arraste arquivos para a janela para abri-los.
 About_Title|About NotepadMoreOS|Sobre o NotepadMoreOS
+About_Changelog|Changelog (Portuguese)|Histórico de alterações
+About_CheckUpdates|Check for updates|Verificar atualizações
+About_CheckingUpdates|Checking for updates…|Verificando atualizações…
+About_UpdateAvailable|Version {0} is available.|A versão {0} está disponível.
+About_UpToDate|You have the latest version.|Você está usando a versão mais recente.
+About_UpdateError|Could not check for updates. Please try again later.|Não foi possível verificar atualizações. Tente novamente mais tarde.
+About_OpenRelease|Open downloads|Abrir downloads
 About_Description|A fast, cross-platform text and source code editor inspired by Notepad++.|Um editor de texto e código-fonte rápido e multiplataforma, inspirado no Notepad++.
 About_BuiltWith|Built with|Construído com
 About_License|MIT licensed. Notepad++ is a separate project by Don Ho.|Licença MIT. O Notepad++ é um projeto separado de Don Ho.

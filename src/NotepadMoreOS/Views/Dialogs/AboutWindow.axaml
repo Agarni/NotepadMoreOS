@@ -1,6 +1,9 @@
 <Window
         xmlns:loc="using:NotepadMoreOS.Resources" xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:md="using:Markdown.Avalonia"
+        xmlns:vm="using:NotepadMoreOS.ViewModels"
+        x:DataType="vm:UpdateCheckViewModel"
         x:Class="NotepadMoreOS.Views.Dialogs.AboutWindow"
         Title="{x:Static loc:Strings.Menu_About}"
         Width="520"
@@ -49,6 +52,18 @@
                      Foreground="{DynamicResource TextSecondaryBrush}" />
         </StackPanel>
       </Border>
+
+      <Expander Header="{x:Static loc:Strings.About_Changelog}">
+        <md:MarkdownScrollViewer x:Name="ChangelogViewer" Height="280" />
+      </Expander>
+
+      <StackPanel Spacing="6">
+        <StackPanel Orientation="Horizontal" Spacing="8">
+          <Button Content="{x:Static loc:Strings.About_CheckUpdates}" Command="{Binding CheckCommand}" />
+          <Button Content="{x:Static loc:Strings.About_OpenRelease}" IsVisible="{Binding UpdateAvailable}" Click="OnReleaseClick" />
+        </StackPanel>
+        <TextBlock Text="{Binding Status}" TextWrapping="Wrap" Foreground="{DynamicResource TextSecondaryBrush}" />
+      </StackPanel>
 
       <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Right">
         <Button Content="{x:Static loc:Strings.About_GitHubButton}"

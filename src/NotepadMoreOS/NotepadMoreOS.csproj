@@ -27,5 +27,6 @@
 
   <ItemGroup>
     <AvaloniaResource Include="Assets/**" />
+    <EmbeddedResource Include="../../CHANGELOG.md" LogicalName="NotepadMoreOS.Changelog.md" />
   </ItemGroup>
 </Project>

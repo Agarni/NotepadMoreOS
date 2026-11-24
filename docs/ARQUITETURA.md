@@ -1,5 +1,7 @@
 # Arquitetura — NotepadMoreOS
 
+`DocumentView` instala o gerenciador de folding por view e atualiza suas regiões após um debounce de edição. JSON/JSONC usa `JsonFoldingService`, que ignora strings e comentários; XML usa a estratégia do AvaloniaEdit. O renderizador de guias percorre apenas linhas visíveis. A janela Sobre consulta releases apenas por solicitação do usuário, usando `UpdateCheckService`; ela não baixa nem instala pacotes.
+
 O destaque de delimitadores é calculado por `BracketMatchingService` e desenhado por um renderizador próprio de cada `DocumentView`; a preferência é compartilhada nas configurações do editor. A busca atual é textual e não interpreta os escopos TextMate.
 
 Este documento descreve como o NotepadMoreOS funciona por dentro. Ele foi escrito para quem vai manter, revisar ou estender o projeto. Para instruções de uso, consulte o [Guia do usuário](GUIA-USUARIO.md). Para receitas de mudança e convenções, consulte o [Guia de desenvolvimento](DESENVOLVIMENTO.md).

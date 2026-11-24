@@ -138,6 +138,13 @@ public static class Strings
     public static string Welcome_RecentHeader => Get(nameof(Welcome_RecentHeader));
     public static string Welcome_Tip => Get(nameof(Welcome_Tip));
     public static string About_Title => Get(nameof(About_Title));
+    public static string About_Changelog => Get(nameof(About_Changelog));
+    public static string About_CheckUpdates => Get(nameof(About_CheckUpdates));
+    public static string About_CheckingUpdates => Get(nameof(About_CheckingUpdates));
+    public static string About_UpdateAvailable => Get(nameof(About_UpdateAvailable));
+    public static string About_UpToDate => Get(nameof(About_UpToDate));
+    public static string About_UpdateError => Get(nameof(About_UpdateError));
+    public static string About_OpenRelease => Get(nameof(About_OpenRelease));
     public static string About_Description => Get(nameof(About_Description));
     public static string About_BuiltWith => Get(nameof(About_BuiltWith));
     public static string About_License => Get(nameof(About_License));
