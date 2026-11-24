@@ -13,6 +13,7 @@ public sealed class AppSettings
     public bool ShowWhitespace { get; set; }
     public bool ShowEndOfLine { get; set; }
     public bool HighlightCurrentLine { get; set; } = true;
+    public bool HighlightMatchingBrackets { get; set; } = true;
     public int TabSize { get; set; } = 4;
     public bool ConvertTabsToSpaces { get; set; }
     public bool EnableColumnRuler { get; set; }

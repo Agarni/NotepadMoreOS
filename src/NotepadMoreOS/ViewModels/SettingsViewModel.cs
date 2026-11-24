@@ -28,6 +28,7 @@ public partial class SettingsViewModel : ObservableObject
         _showWhitespace = settings.ShowWhitespace;
         _showEndOfLine = settings.ShowEndOfLine;
         _highlightCurrentLine = settings.HighlightCurrentLine;
+        _highlightMatchingBrackets = settings.HighlightMatchingBrackets;
         _tabSize = Math.Clamp(settings.TabSize, 1, 16);
         _convertTabsToSpaces = settings.ConvertTabsToSpaces;
         _enableColumnRuler = settings.EnableColumnRuler;
@@ -53,6 +54,7 @@ public partial class SettingsViewModel : ObservableObject
     [ObservableProperty] private bool _showWhitespace;
     [ObservableProperty] private bool _showEndOfLine;
     [ObservableProperty] private bool _highlightCurrentLine;
+    [ObservableProperty] private bool _highlightMatchingBrackets;
     [ObservableProperty] private int _tabSize;
     [ObservableProperty] private bool _convertTabsToSpaces;
     [ObservableProperty] private bool _enableColumnRuler;
@@ -121,6 +123,7 @@ public partial class SettingsViewModel : ObservableObject
         settings.ShowWhitespace = ShowWhitespace;
         settings.ShowEndOfLine = ShowEndOfLine;
         settings.HighlightCurrentLine = HighlightCurrentLine;
+        settings.HighlightMatchingBrackets = HighlightMatchingBrackets;
         settings.TabSize = Math.Clamp(TabSize, 1, 16);
         settings.ConvertTabsToSpaces = ConvertTabsToSpaces;
         settings.EnableColumnRuler = EnableColumnRuler;

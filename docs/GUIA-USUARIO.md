@@ -1,5 +1,7 @@
 # Guia do usuário — NotepadMoreOS
 
+Ao posicionar o cursor junto a `()`, `[]` ou `{}`, o editor destaca os dois delimitadores correspondentes, inclusive em grupos aninhados e em linhas diferentes. Desative a opção **Destacar pares de delimitadores** nas preferências se não desejar esse comportamento. A busca considera também delimitadores em strings e comentários.
+
 O **NotepadMoreOS** é um editor de texto e código para macOS, Windows e Linux. Ele foi inspirado no Notepad++: abre rápido, edita qualquer arquivo de texto, destaca a sintaxe de várias linguagens e mantém vários arquivos abertos em abas.
 
 Você não precisa saber programar para usar o editor. Este guia explica as tarefas do dia a dia em linguagem simples. Termos técnicos aparecem em um [glossário](#glossário) no final.

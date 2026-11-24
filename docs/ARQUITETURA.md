@@ -1,5 +1,7 @@
 # Arquitetura — NotepadMoreOS
 
+O destaque de delimitadores é calculado por `BracketMatchingService` e desenhado por um renderizador próprio de cada `DocumentView`; a preferência é compartilhada nas configurações do editor. A busca atual é textual e não interpreta os escopos TextMate.
+
 Este documento descreve como o NotepadMoreOS funciona por dentro. Ele foi escrito para quem vai manter, revisar ou estender o projeto. Para instruções de uso, consulte o [Guia do usuário](GUIA-USUARIO.md). Para receitas de mudança e convenções, consulte o [Guia de desenvolvimento](DESENVOLVIMENTO.md).
 
 ## 1. Resumo

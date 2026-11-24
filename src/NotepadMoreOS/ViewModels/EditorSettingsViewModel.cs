@@ -36,6 +36,7 @@ public partial class EditorSettingsViewModel : ObservableObject
         _showWhitespace = settings.ShowWhitespace;
         _showEndOfLine = settings.ShowEndOfLine;
         _highlightCurrentLine = settings.HighlightCurrentLine;
+        _highlightMatchingBrackets = settings.HighlightMatchingBrackets;
         _tabSize = settings.TabSize;
         _convertTabsToSpaces = settings.ConvertTabsToSpaces;
         _enableColumnRuler = settings.EnableColumnRuler;
@@ -56,6 +57,7 @@ public partial class EditorSettingsViewModel : ObservableObject
     [ObservableProperty] private bool _showWhitespace;
     [ObservableProperty] private bool _showEndOfLine;
     [ObservableProperty] private bool _highlightCurrentLine;
+    [ObservableProperty] private bool _highlightMatchingBrackets;
     [ObservableProperty] private int _tabSize;
     [ObservableProperty] private bool _convertTabsToSpaces;
     [ObservableProperty] private bool _enableColumnRuler;
@@ -72,6 +74,7 @@ public partial class EditorSettingsViewModel : ObservableObject
             ShowWhitespace = settings.ShowWhitespace;
             ShowEndOfLine = settings.ShowEndOfLine;
             HighlightCurrentLine = settings.HighlightCurrentLine;
+            HighlightMatchingBrackets = settings.HighlightMatchingBrackets;
             TabSize = settings.TabSize;
             ConvertTabsToSpaces = settings.ConvertTabsToSpaces;
             EnableColumnRuler = settings.EnableColumnRuler;
@@ -98,6 +101,7 @@ public partial class EditorSettingsViewModel : ObservableObject
     partial void OnShowWhitespaceChanged(bool value) => Persist(s => s.ShowWhitespace = value);
     partial void OnShowEndOfLineChanged(bool value) => Persist(s => s.ShowEndOfLine = value);
     partial void OnHighlightCurrentLineChanged(bool value) => Persist(s => s.HighlightCurrentLine = value);
+    partial void OnHighlightMatchingBracketsChanged(bool value) => Persist(s => s.HighlightMatchingBrackets = value);
     partial void OnTabSizeChanged(int value) => Persist(s => s.TabSize = Math.Clamp(value, 1, 16));
     partial void OnConvertTabsToSpacesChanged(bool value) => Persist(s => s.ConvertTabsToSpaces = value);
     partial void OnEnableColumnRulerChanged(bool value) => Persist(s => s.EnableColumnRuler = value);

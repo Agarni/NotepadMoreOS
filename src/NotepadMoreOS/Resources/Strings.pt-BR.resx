@@ -886,4 +886,7 @@
   <data name="Dialog_InvalidFormat" xml:space="preserve">
     <value>O documento não corresponde ao formato esperado.</value>
   </data>
+  <data name="Settings_HighlightBrackets" xml:space="preserve">
+    <value>Destacar pares de delimitadores</value>
+  </data>
 </root>

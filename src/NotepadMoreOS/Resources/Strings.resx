@@ -886,4 +886,7 @@
   <data name="Dialog_InvalidFormat" xml:space="preserve">
     <value>The document does not match the expected format.</value>
   </data>
+  <data name="Settings_HighlightBrackets" xml:space="preserve">
+    <value>Highlight matching brackets</value>
+  </data>
 </root>

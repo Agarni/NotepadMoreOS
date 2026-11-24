@@ -295,3 +295,4 @@ Tab_InvisiblesOverride|Invisible character display differs from preferences|A ex
 Menu_MarkdownPreview|Markdown preview|Prévia Markdown
 Menu_FormatDocument|Format JSON, JSONC or XML|Formatar JSON, JSONC ou XML
 Dialog_InvalidFormat|The document does not match the expected format.|O documento não corresponde ao formato esperado.
+Settings_HighlightBrackets|Highlight matching brackets|Destacar pares de delimitadores

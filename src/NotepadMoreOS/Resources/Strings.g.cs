@@ -309,4 +309,5 @@ public static class Strings
     public static string Menu_MarkdownPreview => Get(nameof(Menu_MarkdownPreview));
     public static string Menu_FormatDocument => Get(nameof(Menu_FormatDocument));
     public static string Dialog_InvalidFormat => Get(nameof(Dialog_InvalidFormat));
+    public static string Settings_HighlightBrackets => Get(nameof(Settings_HighlightBrackets));
 }

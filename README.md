@@ -1,8 +1,10 @@
 # NotepadMoreOS
 
+O editor destaca pares correspondentes de `()`, `[]` e `{}` junto ao cursor; a opção pode ser desativada nas preferências. A correspondência considera os caracteres do texto, inclusive em comentários e strings.
+
 [![Build and test](https://github.com/Agarni/NotepadMoreOS/actions/workflows/build.yml/badge.svg)](https://github.com/Agarni/NotepadMoreOS/actions/workflows/build.yml)
 
-Um editor de texto e código multiplataforma inspirado no **Notepad++**, construído com **Avalonia 12**, **.NET 10** e **AvaloniaEdit**. Versão atual: **1.7.4**.
+Um editor de texto e código multiplataforma inspirado no **Notepad++**, construído com **Avalonia 12**, **.NET 10** e **AvaloniaEdit**. Versão atual: **1.7.5**.
 
 O editor oferece quebra visual de linha e marcas de caracteres invisíveis por aba, prévia Markdown e formatação local de JSON, JSONC e XML. Consulte o [guia do usuário](docs/GUIA-USUARIO.md).
 

@@ -221,6 +221,7 @@
             <CheckBox Content="{x:Static loc:Strings.Settings_ShowWhitespace}" IsChecked="{Binding ShowWhitespace, Mode=TwoWay}" />
             <CheckBox Content="{x:Static loc:Strings.Settings_ShowEol}" IsChecked="{Binding ShowEndOfLine, Mode=TwoWay}" />
             <CheckBox Content="{x:Static loc:Strings.Settings_HighlightLine}" IsChecked="{Binding HighlightCurrentLine, Mode=TwoWay}" />
+            <CheckBox Content="{x:Static loc:Strings.Settings_HighlightBrackets}" IsChecked="{Binding HighlightMatchingBrackets, Mode=TwoWay}" />
             <CheckBox Content="{x:Static loc:Strings.Settings_ColumnRuler}" IsChecked="{Binding EnableColumnRuler, Mode=TwoWay}" />
           </WrapPanel>
         </StackPanel>

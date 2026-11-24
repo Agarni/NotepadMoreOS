@@ -1,5 +1,7 @@
 # Guia de desenvolvimento — NotepadMoreOS
 
+O renderizador de pares pertence à visualização, acompanha cursor, alterações e troca de documento e é removido ao desanexar. A busca atual considera delimitadores dentro de comentários e strings.
+
 Este manual é para desenvolvedores e agentes de IA que vão alterar o projeto. Ele assume que você já leu o [Guia do usuário](GUIA-USUARIO.md) e a [Arquitetura](ARQUITETURA.md).
 
 ## 1. Preparação

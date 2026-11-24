@@ -2,7 +2,7 @@
 
 O roadmap é uma prioridade, não uma promessa. Itens podem ser reordenados conforme feedback.
 
-## Estado atual (1.7.4)
+## Estado atual (1.7.5)
 
 - Editor multiaba com TextMate e 63 linguagens
 - Busca e substituição com regex, palavra inteira, match case, escopo de seleção e painel de resultados
@@ -19,9 +19,7 @@ O roadmap é uma prioridade, não uma promessa. Itens podem ser reordenados conf
 - Instaladores: DMG com arrastar-para-Aplicativos no macOS, assistente Inno Setup no Windows e pacotes `.deb` + `.tar.gz` no Linux
 - Testes automatizados e ferramenta de screenshots headless
 
-## Implementado após 1.7.4
-
-- Visualização temporária por aba, prévia Markdown e formatação de JSON, JSONC e XML.
+- Visualização temporária por aba, prévia Markdown, formatação de JSON, JSONC e XML e destaque configurável de pares de delimitadores.
 
 ## Próximo
 

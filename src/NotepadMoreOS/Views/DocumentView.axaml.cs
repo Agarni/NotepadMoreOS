@@ -20,6 +20,7 @@ public partial class DocumentView : UserControl
     private DocumentViewModel? _viewModel;
     private TextMateInstallation? _textMate;
     private bool _attached;
+    private readonly BracketHighlightRenderer _bracketRenderer = new();
 
     public DocumentView()
     {
@@ -66,6 +67,8 @@ public partial class DocumentView : UserControl
         _viewModel = viewModel;
         UpdatePreviewLayout();
         editor.Document = viewModel.Document;
+        editor.TextArea.TextView.BackgroundRenderers.Add(_bracketRenderer);
+        editor.Document.Changed += OnDocumentChanged;
         _viewModel.Host = new EditorHost(editor);
 
         // NotepadMoreOS has its own find bar; disable AvaloniaEdit's built-in search commands.
@@ -107,6 +110,7 @@ public partial class DocumentView : UserControl
             }
 
             _editor.CaretOffset = Math.Clamp(caret, 0, _editor.Document?.TextLength ?? 0);
+            UpdateBracketHighlight();
             _editor.TextArea.Caret.BringCaretToView();
 
             if (_viewModel?.Host is { } host)
@@ -127,6 +131,8 @@ public partial class DocumentView : UserControl
 
         if (_editor is not null)
         {
+            _editor.TextArea.TextView.BackgroundRenderers.Remove(_bracketRenderer);
+            _editor.Document.Changed -= OnDocumentChanged;
             _editor.TextArea.Caret.PositionChanged -= OnCaretChanged;
             _editor.TextArea.SelectionChanged -= OnSelectionChanged;
             _viewModel!.SavedCaretOffset = _editor.CaretOffset;
@@ -221,6 +227,8 @@ public partial class DocumentView : UserControl
         var muted = isDark ? Color.Parse("#858585") : Color.Parse("#6E7681");
         var lineHighlight = isDark ? Color.FromArgb(18, 255, 255, 255) : Color.FromArgb(13, 0, 0, 0);
 
+        _bracketRenderer.Brush = new SolidColorBrush(isDark ? Color.FromArgb(100, 120, 170, 230) : Color.FromArgb(110, 90, 145, 210));
+        _editor.TextArea.TextView.InvalidateLayer(AvaloniaEdit.Rendering.KnownLayer.Selection);
         _editor.Background = new SolidColorBrush(background);
         _editor.Foreground = new SolidColorBrush(foreground);
         _editor.LineNumbersForeground = new SolidColorBrush(muted);
@@ -294,8 +302,22 @@ public partial class DocumentView : UserControl
             return;
         }
 
+        UpdateBracketHighlight();
         _viewModel.SavedCaretOffset = _editor.CaretOffset;
         _viewModel.UpdateCaret(_editor.TextArea.Caret.Line, _editor.TextArea.Caret.Column, _editor.SelectionLength);
+    }
+
+    private void OnDocumentChanged(object? sender, AvaloniaEdit.Document.DocumentChangeEventArgs e) => UpdateBracketHighlight();
+
+    private void UpdateBracketHighlight()
+    {
+        if (_editor?.Document is not { } document || _viewModel is null) return;
+        var caret = Math.Clamp(_editor.CaretOffset, 0, document.TextLength);
+        var adjacent = (caret < document.TextLength && "()[]{}".Contains(document.GetCharAt(caret))) ||
+                       (caret > 0 && "()[]{}".Contains(document.GetCharAt(caret - 1)));
+        _bracketRenderer.Pair = _viewModel.EditorSettings.HighlightMatchingBrackets && adjacent
+            ? BracketMatchingService.Find(document.Text, caret) : null;
+        _editor.TextArea.TextView.InvalidateLayer(AvaloniaEdit.Rendering.KnownLayer.Selection);
     }
 
     private void OnSelectionChanged(object? sender, EventArgs e)
@@ -310,7 +332,11 @@ public partial class DocumentView : UserControl
 
     private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
-        if (e.PropertyName == nameof(DocumentViewModel.ShowMarkdownPreview))
+        if (e.PropertyName == nameof(DocumentViewModel.DisplayOptions))
+        {
+            UpdateBracketHighlight();
+        }
+        else if (e.PropertyName == nameof(DocumentViewModel.ShowMarkdownPreview))
         {
             UpdatePreviewLayout();
         }
@@ -321,7 +347,10 @@ public partial class DocumentView : UserControl
         }
         else if (e.PropertyName == nameof(DocumentViewModel.Document) && _editor is not null && _viewModel is not null)
         {
+            _editor.Document.Changed -= OnDocumentChanged;
             _editor.Document = _viewModel.Document;
+            _editor.Document.Changed += OnDocumentChanged;
+            UpdateBracketHighlight();
         }
     }
 
