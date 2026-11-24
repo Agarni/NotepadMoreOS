@@ -1,15 +1,24 @@
 <UserControl
         xmlns:loc="using:NotepadMoreOS.Resources" xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:md="using:Markdown.Avalonia"
              xmlns:edit="using:AvaloniaEdit"
              xmlns:controls="using:NotepadMoreOS.Controls"
              xmlns:vm="using:NotepadMoreOS.ViewModels"
              x:Class="NotepadMoreOS.Views.DocumentView"
              x:DataType="vm:DocumentViewModel">
-  <Grid Background="{DynamicResource EditorBackgroundBrush}">
-    <controls:NotepadTextEditor Name="Editor"
-                     Options="{Binding EditorSettings.EditorOptions}"
-                     WordWrap="{Binding EditorSettings.WordWrap}"
+  <Grid RowDefinitions="Auto,*,Auto" Background="{DynamicResource EditorBackgroundBrush}">
+    <Button HorizontalAlignment="Right"
+            IsVisible="{Binding SupportsMarkdownPreview}"
+            Command="{Binding ToggleMarkdownPreviewCommand}"
+            AutomationProperties.Name="{x:Static loc:Strings.Menu_MarkdownPreview}"
+            ToolTip.Tip="{x:Static loc:Strings.Menu_MarkdownPreview}">
+      <TextBlock Text="◫" />
+    </Button>
+    <Grid Name="EditorLayout" Grid.Row="1" RowDefinitions="*,Auto,0">
+    <controls:NotepadTextEditor Grid.Row="0" Name="Editor"
+                     Options="{Binding DisplayOptions}"
+                     WordWrap="{Binding EffectiveWordWrap}"
                      ShowLineNumbers="{Binding EditorSettings.ShowLineNumbers}"
                      FontFamily="{Binding EditorSettings.EditorFontFamily}"
                      FontSize="{Binding EffectiveFontSize}"
@@ -37,5 +46,19 @@
         </MenuFlyout>
       </controls:NotepadTextEditor.ContextFlyout>
     </controls:NotepadTextEditor>
+    <GridSplitter Grid.Row="1" Height="8" HorizontalAlignment="Stretch"
+                  Background="{DynamicResource AccentBrush}"
+                  ResizeDirection="Rows" ResizeBehavior="PreviousAndNext"
+                  IsVisible="{Binding ShowMarkdownPreview}" />
+    <Border Grid.Row="2" IsVisible="{Binding ShowMarkdownPreview}"
+            BorderThickness="0,1,0,0" BorderBrush="{DynamicResource AccentBrush}">
+      <Grid RowDefinitions="Auto,*">
+        <Button HorizontalAlignment="Right" Content="×"
+                AutomationProperties.Name="{x:Static loc:Strings.Chrome_Close}"
+                Command="{Binding ToggleMarkdownPreviewCommand}" />
+        <md:MarkdownScrollViewer Grid.Row="1" Markdown="{Binding PreviewMarkdown}" />
+      </Grid>
+    </Border>
+    </Grid>
   </Grid>
 </UserControl>

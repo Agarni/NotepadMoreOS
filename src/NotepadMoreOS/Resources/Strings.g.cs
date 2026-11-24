@@ -302,4 +302,11 @@ public static class Strings
     public static string Tabs_ScrollLeft => Get(nameof(Tabs_ScrollLeft));
     public static string Tabs_ScrollRight => Get(nameof(Tabs_ScrollRight));
     public static string About_GitHubButton => Get(nameof(About_GitHubButton));
+    public static string Menu_Invisibles => Get(nameof(Menu_Invisibles));
+    public static string Menu_ResetDisplay => Get(nameof(Menu_ResetDisplay));
+    public static string Tab_WrapOverride => Get(nameof(Tab_WrapOverride));
+    public static string Tab_InvisiblesOverride => Get(nameof(Tab_InvisiblesOverride));
+    public static string Menu_MarkdownPreview => Get(nameof(Menu_MarkdownPreview));
+    public static string Menu_FormatDocument => Get(nameof(Menu_FormatDocument));
+    public static string Dialog_InvalidFormat => Get(nameof(Dialog_InvalidFormat));
 }

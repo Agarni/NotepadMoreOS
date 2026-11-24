@@ -190,6 +190,8 @@ A busca em arquivos pode abrir um arquivo que ainda não tem view anexada. Para 
 
 `DocumentView` aplica esse estado depois do layout, chamando `ApplyPendingSelection(host)`, que seleciona o trecho e rola até a linha. Se a view já estiver anexada, `MainWindowViewModel` aplica imediatamente.
 
+A quebra visual de linha e a exibição conjunta de espaços, tabulações e fins de linha podem ser ajustadas na aba. Os ajustes vivem no `DocumentViewModel` e as opções aplicadas ao editor são copiadas das preferências globais. A prévia Markdown recebe o texto do documento em um painel somente leitura. Um `GridSplitter` ajusta a proporção entre os painéis. Ao fechar a prévia, `DocumentView` zera a altura da linha correspondente para devolver a área ao editor. Ao abrir, as duas linhas recebem proporções iguais. `DocumentFormatter` valida e formata JSON, JSONC e XML localmente antes da substituição no documento.
+
 ## 7. Ciclo de vida da view do editor
 
 ```mermaid

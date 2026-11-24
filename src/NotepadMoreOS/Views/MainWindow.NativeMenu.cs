@@ -123,6 +123,7 @@ public partial class MainWindow
         menu.Items.Add(Item(Strings.Menu_DeleteLine, viewModel.DeleteLineCommand, Command(Key.L)));
         menu.Items.Add(Item(Strings.Menu_ToggleComment, viewModel.ToggleCommentCommand, Command(Key.C, KeyModifiers.Alt)));
         menu.Items.Add(Item(Strings.Menu_InsertDateTime, viewModel.InsertDateTimeCommand, new KeyGesture(Key.F5)));
+        menu.Items.Add(new NativeMenuItem { Header = Strings.Menu_FormatDocument, Command = viewModel.FormatDocumentCommand });
         return menu;
     }
 
@@ -215,7 +216,8 @@ public partial class MainWindow
             return item;
         }
 
-        menu.Items.Add(Toggle(Strings.Menu_WordWrap, () => viewModel.EditorSettings.WordWrap, value => viewModel.EditorSettings.WordWrap = value));
+        var wrap = new NativeMenuItem { Header = Strings.Menu_WordWrap, Command = viewModel.ToggleWordWrapCommand };
+        menu.Items.Add(wrap);
         menu.Items.Add(Toggle(Strings.Menu_LineNumbers, () => viewModel.EditorSettings.ShowLineNumbers, value => viewModel.EditorSettings.ShowLineNumbers = value));
         menu.Items.Add(Toggle(Strings.Menu_Whitespace, () => viewModel.EditorSettings.ShowWhitespace, value => viewModel.EditorSettings.ShowWhitespace = value));
         menu.Items.Add(Toggle(Strings.Menu_EndOfLine, () => viewModel.EditorSettings.ShowEndOfLine, value => viewModel.EditorSettings.ShowEndOfLine = value));

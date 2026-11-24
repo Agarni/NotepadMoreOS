@@ -865,4 +865,25 @@
   <data name="About_GitHubButton" xml:space="preserve">
     <value>Projeto no GitHub</value>
   </data>
+  <data name="Menu_Invisibles" xml:space="preserve">
+    <value>Mostrar caracteres invisíveis nesta aba</value>
+  </data>
+  <data name="Menu_ResetDisplay" xml:space="preserve">
+    <value>Usar opções globais de visualização</value>
+  </data>
+  <data name="Tab_WrapOverride" xml:space="preserve">
+    <value>A quebra visual difere das preferências</value>
+  </data>
+  <data name="Tab_InvisiblesOverride" xml:space="preserve">
+    <value>A exibição de invisíveis difere das preferências</value>
+  </data>
+  <data name="Menu_MarkdownPreview" xml:space="preserve">
+    <value>Prévia Markdown</value>
+  </data>
+  <data name="Menu_FormatDocument" xml:space="preserve">
+    <value>Formatar JSON, JSONC ou XML</value>
+  </data>
+  <data name="Dialog_InvalidFormat" xml:space="preserve">
+    <value>O documento não corresponde ao formato esperado.</value>
+  </data>
 </root>

@@ -2,6 +2,19 @@
 
 Todas as mudanças relevantes do NotepadMoreOS são registradas aqui.
 
+## [Não publicado]
+
+### Adicionado
+
+- Quebra visual de linha e exibição de caracteres invisíveis temporárias por aba, com indicadores de diferença em relação às preferências.
+- Prévia Markdown somente leitura em painel redimensionável abaixo do editor.
+- Formatação local de JSON, JSONC e XML com aviso para conteúdo inválido.
+
+### Corrigido
+
+- Formatação de JSON e JSONC com indentação de estruturas aninhadas e validação do resultado. A formatação de XML preserva os espaços existentes no conteúdo.
+- Ao fechar a prévia Markdown, o editor volta a ocupar a área usada pelo painel.
+
 ## [1.7.4] — 2026-11-23
 
 ### Adicionado

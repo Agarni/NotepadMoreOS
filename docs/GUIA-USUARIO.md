@@ -178,7 +178,7 @@ A indentação é automática: ao pressionar Enter, a linha seguinte copia a ind
 - `Cmd+W` / `Ctrl+W` fecha a aba atual.
 - `Cmd+Shift+W` / `Ctrl+Shift+W` fecha todas as abas.
 
-Se **Restore session** estiver ativado em **Settings → Preferences**, os arquivos abertos e a posição do cursor são restaurados na próxima inicialização. Documentos novos/alterados são cobertos pelo backup automático de recuperação após crash; se o app for fechado normalmente, apenas arquivos em disco entram na sessão e alterações descartadas explicitamente não são recuperadas.
+Com a recuperação ativada em **Settings → Preferences**, o NotepadMoreOS salva um snapshot ao fechar normalmente e restaura as abas e seus rascunhos na próxima abertura, sem gravar alterações nos arquivos originais. Se não for possível salvar o snapshot, o editor pergunta se você quer salvar as abas alteradas. Com a recuperação desativada, o fechamento pergunta o que fazer com alterações não salvas. A opção **Restore session** controla a restauração da sessão de arquivos e posições do cursor, separada da recuperação de rascunhos. Sessões nomeadas também guardam seus próprios rascunhos.
 
 ### Sessões nomeadas
 
@@ -400,6 +400,16 @@ Em **Settings → Preferences**:
 
 As preferências são salvas automaticamente.
 
+### Visualização por aba
+
+Use o menu de contexto da aba para alternar a quebra visual de linha ou mostrar espaços, tabulações e marcas de fim de linha juntos. Os ícones ↵ e ¶ aparecem quando a opção da aba difere da preferência global. **Usar opções globais de visualização** restaura os padrões. Abas recém-abertas seguem as preferências e as alterações individuais duram enquanto a aba estiver aberta.
+
+### Prévia e formatação
+
+Nos arquivos Markdown, use o ícone acima do editor para abrir a prévia abaixo do texto. Arraste o divisor horizontal entre o editor e a prévia para ajustar a altura dos painéis. O botão × fecha a prévia e o editor volta a ocupar a área disponível. Ao abri-la novamente, os painéis voltam a dividir o espaço igualmente.
+
+Em JSON, JSONC e XML, use **Editar → Formatar JSON, JSONC ou XML**. O JSONC mantém comentários e aceita vírgulas finais. O XML preserva os espaços existentes, inclusive entre elementos, que podem ter significado no conteúdo. Por isso, a indentação automática é desativada quando esses espaços estão presentes. Se o conteúdo estiver inválido, o editor informa o erro e preserva o texto. Uma formatação aplicada pode ser desfeita.
+
 ### Idioma da interface
 
 A interface está disponível em **inglês** e **português do Brasil**. Por padrão ela segue o idioma do sistema; para forçar outro, use **Settings → Appearance → Language**. A mudança é aplicada ao reiniciar o aplicativo.
@@ -463,7 +473,7 @@ Confira se o .NET 10 está instalado ao executar pelo código. Em uma versão pu
 A codificação foi detectada incorretamente. Use **Encoding → Reopen with Encoding** e escolha a codificação correta (por exemplo, ANSI ou ISO-8859-1). Depois salve com a codificação desejada.
 
 **Fechei o app. Perdi meu texto?**
-Não. Por padrão, o NotepadMoreOS mantém rascunhos não salvos em um snapshot mesmo no fechamento normal. Ao reabrir, as abas e o conteúdo são restaurados sem alterar o arquivo original. O snapshot só é removido quando você desativa essa preferência e escolhe descartar, ou quando não há mais abas abertas.
+Por padrão, o NotepadMoreOS mantém rascunhos não salvos em um snapshot no fechamento normal. Ao reabrir, as abas e o conteúdo são restaurados sem alterar o arquivo original. Se o snapshot não puder ser salvo, o editor pergunta se você quer salvar as abas alteradas. Com a recuperação desativada, o fechamento também pergunta o que fazer com alterações não salvas.
 
 **Outro programa alterou meu arquivo.**
 Se não havia edições locais, o arquivo é recarregado. Se havia, o editor pergunta antes de descartar. Alterações feitas pelo próprio NotepadMoreOS não disparam o aviso.

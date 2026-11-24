@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Text;
 using Avalonia.Media;
 using AvaloniaEdit.Document;
+using AvaloniaEdit;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using NotepadMoreOS.Models;
@@ -33,6 +34,7 @@ public partial class DocumentViewModel : ObservableObject, IDisposable
         _languageService = languageService;
         ThemeService = themeService;
         EditorSettings = editorSettings;
+        RefreshDisplayOptions();
 
         _title = $"new {untitledNumber}";
         _lineEnding = LineEndingCatalog.Get(LineEndingCatalog.Detect(string.Empty));
@@ -48,6 +50,68 @@ public partial class DocumentViewModel : ObservableObject, IDisposable
     public ThemeService ThemeService { get; }
 
     public EditorSettingsViewModel EditorSettings { get; }
+
+    private bool? _wrapOverride;
+    private bool? _invisiblesOverride;
+
+    public TextEditorOptions DisplayOptions { get; private set; } = new();
+    public bool EffectiveWordWrap => _wrapOverride ?? EditorSettings.WordWrap;
+    public bool HasWrapOverride => EffectiveWordWrap != EditorSettings.WordWrap;
+    public bool HasInvisiblesOverride => _invisiblesOverride is bool value
+        && (value != EditorSettings.ShowWhitespace || value != EditorSettings.ShowEndOfLine);
+    public bool ShowsAllInvisibles => DisplayOptions.ShowSpaces && DisplayOptions.ShowEndOfLine;
+    public bool SupportsMarkdownPreview => ExtensionBadge.Equals("MD", StringComparison.OrdinalIgnoreCase)
+        || ExtensionBadge.Equals("MARKDOWN", StringComparison.OrdinalIgnoreCase);
+    public bool ShowMarkdownPreview => SupportsMarkdownPreview && MarkdownPreviewOpen;
+    public string PreviewMarkdown => ShowMarkdownPreview ? Document.Text : string.Empty;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(ShowMarkdownPreview))]
+    [NotifyPropertyChangedFor(nameof(PreviewMarkdown))]
+    private bool _markdownPreviewOpen;
+
+    [RelayCommand]
+    private void ToggleMarkdownPreview() => MarkdownPreviewOpen = !MarkdownPreviewOpen;
+
+    [RelayCommand]
+    private void ToggleWrapOverride()
+    {
+        var value = !EffectiveWordWrap;
+        _wrapOverride = value == EditorSettings.WordWrap ? null : value;
+        RefreshDisplayOptions();
+    }
+
+    [RelayCommand]
+    private void ToggleInvisiblesOverride()
+    {
+        var value = !ShowsAllInvisibles;
+        _invisiblesOverride = value == EditorSettings.ShowWhitespace && value == EditorSettings.ShowEndOfLine
+            ? null : value;
+        RefreshDisplayOptions();
+    }
+
+    [RelayCommand]
+    private void ResetDisplayOptions()
+    {
+        _wrapOverride = null;
+        _invisiblesOverride = null;
+        RefreshDisplayOptions();
+    }
+
+    private void RefreshDisplayOptions()
+    {
+        DisplayOptions = new TextEditorOptions(EditorSettings.EditorOptions)
+        {
+            ShowSpaces = _invisiblesOverride ?? EditorSettings.ShowWhitespace,
+            ShowTabs = _invisiblesOverride ?? EditorSettings.ShowWhitespace,
+            ShowEndOfLine = _invisiblesOverride ?? EditorSettings.ShowEndOfLine
+        };
+        OnPropertyChanged(nameof(DisplayOptions));
+        OnPropertyChanged(nameof(EffectiveWordWrap));
+        OnPropertyChanged(nameof(HasWrapOverride));
+        OnPropertyChanged(nameof(HasInvisiblesOverride));
+        OnPropertyChanged(nameof(ShowsAllInvisibles));
+    }
 
     public Guid Id { get; } = Guid.NewGuid();
 
@@ -259,6 +323,9 @@ public partial class DocumentViewModel : ObservableObject, IDisposable
                 OnPropertyChanged(nameof(IsUntitled));
                 OnPropertyChanged(nameof(HasFilePath));
                 OnPropertyChanged(nameof(ExtensionBadge));
+        OnPropertyChanged(nameof(SupportsMarkdownPreview));
+        OnPropertyChanged(nameof(ShowMarkdownPreview));
+        OnPropertyChanged(nameof(PreviewMarkdown));
                 OnPropertyChanged(nameof(FilePath));
                 return true;
             }
@@ -348,6 +415,9 @@ public partial class DocumentViewModel : ObservableObject, IDisposable
             OnPropertyChanged(nameof(IsUntitled));
             OnPropertyChanged(nameof(HasFilePath));
             OnPropertyChanged(nameof(ExtensionBadge));
+        OnPropertyChanged(nameof(SupportsMarkdownPreview));
+        OnPropertyChanged(nameof(ShowMarkdownPreview));
+        OnPropertyChanged(nameof(PreviewMarkdown));
             OnPropertyChanged(nameof(FilePath));
             return true;
         }
@@ -418,6 +488,9 @@ public partial class DocumentViewModel : ObservableObject, IDisposable
         OnPropertyChanged(nameof(IsUntitled));
         OnPropertyChanged(nameof(HasFilePath));
         OnPropertyChanged(nameof(ExtensionBadge));
+        OnPropertyChanged(nameof(SupportsMarkdownPreview));
+        OnPropertyChanged(nameof(ShowMarkdownPreview));
+        OnPropertyChanged(nameof(PreviewMarkdown));
         return true;
     }
 
@@ -465,6 +538,9 @@ public partial class DocumentViewModel : ObservableObject, IDisposable
         OnPropertyChanged(nameof(IsUntitled));
         OnPropertyChanged(nameof(HasFilePath));
         OnPropertyChanged(nameof(ExtensionBadge));
+        OnPropertyChanged(nameof(SupportsMarkdownPreview));
+        OnPropertyChanged(nameof(ShowMarkdownPreview));
+        OnPropertyChanged(nameof(PreviewMarkdown));
         OnPropertyChanged(nameof(FilePath));
     }
 
@@ -614,6 +690,9 @@ public partial class DocumentViewModel : ObservableObject, IDisposable
             OnPropertyChanged(nameof(IsUntitled));
             OnPropertyChanged(nameof(HasFilePath));
             OnPropertyChanged(nameof(ExtensionBadge));
+        OnPropertyChanged(nameof(SupportsMarkdownPreview));
+        OnPropertyChanged(nameof(ShowMarkdownPreview));
+        OnPropertyChanged(nameof(PreviewMarkdown));
             OnPropertyChanged(nameof(FilePath));
         }
         finally
@@ -628,6 +707,7 @@ public partial class DocumentViewModel : ObservableObject, IDisposable
         _document = document;
         AttachDocument(_document);
         OnPropertyChanged(nameof(Document));
+        OnPropertyChanged(nameof(PreviewMarkdown));
     }
 
     private void AttachDocument(TextDocument document)
@@ -644,6 +724,8 @@ public partial class DocumentViewModel : ObservableObject, IDisposable
 
     private void OnDocumentChanged(object? sender, DocumentChangeEventArgs e)
     {
+        if (ShowMarkdownPreview)
+            OnPropertyChanged(nameof(PreviewMarkdown));
         UpdateStats();
         UpdateDirty();
     }
@@ -676,6 +758,7 @@ public partial class DocumentViewModel : ObservableObject, IDisposable
     private void OnEditorSettingsChanged(object? sender, EventArgs e)
     {
         OnPropertyChanged(nameof(EffectiveFontSize));
+        RefreshDisplayOptions();
     }
 }
 

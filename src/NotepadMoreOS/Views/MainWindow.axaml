@@ -82,6 +82,7 @@
         <MenuItem Header="{x:Static loc:Strings.Menu_DeleteLine}" HotKey="{controls:Mod Key=L}" Command="{Binding DeleteLineCommand}" />
         <MenuItem Header="{x:Static loc:Strings.Menu_ToggleComment}" HotKey="{controls:Mod Key=C, Modifiers=Alt}" Command="{Binding ToggleCommentCommand}" />
         <MenuItem Header="{x:Static loc:Strings.Menu_InsertDateTime}" HotKey="F5" Command="{Binding InsertDateTimeCommand}" />
+        <MenuItem Header="{x:Static loc:Strings.Menu_FormatDocument}" Command="{Binding FormatDocumentCommand}" />
       </MenuItem>
 
       <MenuItem Header="{x:Static loc:Strings.Menu_Search}">
@@ -104,7 +105,7 @@
       </MenuItem>
 
       <MenuItem Header="{x:Static loc:Strings.Menu_View}">
-        <MenuItem Header="{x:Static loc:Strings.Menu_WordWrap}" ToggleType="CheckBox" IsChecked="{Binding EditorSettings.WordWrap, Mode=TwoWay}" HotKey="{controls:Mod Key=W, Modifiers=Alt}" />
+        <MenuItem Header="{x:Static loc:Strings.Menu_WordWrap}" Command="{Binding ToggleWordWrapCommand}" HotKey="{controls:Mod Key=W, Modifiers=Alt}" />
         <MenuItem Header="{x:Static loc:Strings.Menu_LineNumbers}" ToggleType="CheckBox" IsChecked="{Binding EditorSettings.ShowLineNumbers, Mode=TwoWay}" />
         <MenuItem Header="{x:Static loc:Strings.Menu_Whitespace}" ToggleType="CheckBox" IsChecked="{Binding EditorSettings.ShowWhitespace, Mode=TwoWay}" />
         <MenuItem Header="{x:Static loc:Strings.Menu_EndOfLine}" ToggleType="CheckBox" IsChecked="{Binding EditorSettings.ShowEndOfLine, Mode=TwoWay}" />
@@ -468,6 +469,10 @@
                         ToolTip.Tip="{Binding FilePath, FallbackValue='Untitled'}">
                   <Button.ContextFlyout>
                     <MenuFlyout>
+                      <MenuItem Header="{x:Static loc:Strings.Menu_WordWrap}" Command="{Binding ToggleWrapOverrideCommand}" />
+                      <MenuItem Header="{x:Static loc:Strings.Menu_Invisibles}" Command="{Binding ToggleInvisiblesOverrideCommand}" />
+                      <MenuItem Header="{x:Static loc:Strings.Menu_ResetDisplay}" Command="{Binding ResetDisplayOptionsCommand}" />
+                      <Separator />
                       <MenuItem Header="{x:Static loc:Strings.Chrome_Close}"
                                 Command="{Binding RequestActionCommand}"
                                 CommandParameter="close" />
@@ -612,6 +617,8 @@
                               Height="10"
                               Stretch="Uniform"
                               IsVisible="{Binding IsPinned}" />
+                        <TextBlock Text="↵" IsVisible="{Binding HasWrapOverride}" ToolTip.Tip="{x:Static loc:Strings.Tab_WrapOverride}" />
+                        <TextBlock Text="¶" IsVisible="{Binding HasInvisiblesOverride}" ToolTip.Tip="{x:Static loc:Strings.Tab_InvisiblesOverride}" />
                         <Ellipse Classes="dirty"
                                  Width="7"
                                  Height="7"

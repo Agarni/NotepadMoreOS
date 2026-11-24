@@ -48,7 +48,7 @@ Target framework is `net10.0`. Keep the build free of errors and warnings.
 
 1. Do not bind `TextEditor.Text`. `TextDocument` is the model; assign it in `DocumentView` and handle `Document` replacement.
 2. Dirty state = `!UndoStack.IsOriginalFile || Encoding.Kind != savedEncoding`. Call `MarkAsOriginalFile()` after load/save.
-3. All file writes go through `FileService` (EOL normalization, encoding preamble, temp file + atomic move).
+3. Saving edited documents goes through `FileService` (EOL normalization, encoding preamble, temp file + atomic move). Settings and recovery/session data use their own persistence services.
 4. TextMate installation is per view and must be disposed on detach. Do not share it across documents.
 5. Any control derived from an Avalonia control must override `StyleKeyOverride` (see `NotepadTextEditor`).
 6. Use compiled bindings with `x:DataType`. Avoid reflection bindings.
@@ -59,7 +59,7 @@ Target framework is `net10.0`. Keep the build free of errors and warnings.
 11. Settings persistence is best-effort and debounced; never crash because settings could not be saved.
 12. Keep UI strings in `Resources/Strings*.resx` (source: `tools/localization/strings.tsv`); never hardcode visible text. Documentation is Portuguese.
 13. Use `LogToTrace`/the snapshot tool for binding diagnostics; do not add `Avalonia.Diagnostics`.
-14. When `RecoveryEnabled` is on, a normal close saves the recovery snapshot, skips save prompts and **keeps** drafts; original files are untouched. When off, prompt and clear recovery on close.
+14. When `RecoveryEnabled` is on, a normal close skips save prompts and keeps drafts only if the recovery snapshot is saved successfully; original files are untouched. If saving the snapshot fails, fall back to save prompts. When recovery is off, prompt and clear recovery on close.
 15. Suppress `FileWatchService` around our own saves; otherwise the editor can reload itself or show false external-change prompts.
 16. Native macOS menus are installed once, after `Loaded`; setting a second `NativeMenu` on the same window throws `The menu being updated does not match`. Clear `Window.KeyBindings` (and hidden in-window HotKeys) on real macOS to avoid double execution, re-add `Esc`, and keep the in-window menu for headless rendering.
 17. On macOS the window uses `WindowDecorations.BorderOnly` + `ExtendClientAreaToDecorationsHint`, with custom traffic lights and drag handling in `MainWindow.axaml.cs`. Keep the traffic lights visible in headless (they are our controls) and hide the in-window menu there.
@@ -98,14 +98,14 @@ Target framework is `net10.0`. Keep the build free of errors and warnings.
 Before finishing a change:
 
 1. `dotnet build` — 0 errors, 0 warnings.
-2. `dotnet test` — all tests pass (138 at the time of writing; count may grow).
+2. `dotnet test` — all tests pass.
 3. `dotnet run --project tools/NotepadMoreOS.UiSnapshot` — exits 0; any `[Binding]` line fails the run.
 4. If UI changed, inspect the regenerated screenshots.
 5. If behavior changed, update `README.md`, `docs/GUIA-USUARIO.md`, `docs/ARQUITETURA.md`, `docs/DESENVOLVIMENTO.md` and `CHANGELOG.md` as appropriate.
 
 ## Known limitations (do not present as done)
 
-Print, macros/plugins, function list/document map/folder explorer, file compare, custom find-in-files exclusions, localization, signed installers, large-file virtualization. See `docs/ROADMAP.md`.
+Print, macros/plugins, function list/document map/folder explorer, file compare, custom find-in-files exclusions, additional interface languages, signed installers, large-file virtualization. See `docs/ROADMAP.md`.
 
 ## Current features
 

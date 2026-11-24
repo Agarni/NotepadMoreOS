@@ -288,3 +288,10 @@ Status_Length|Length {0:N0}|Comprimento {0:N0}
 Tabs_ScrollLeft|Scroll tabs left|Rolar abas para a esquerda
 Tabs_ScrollRight|Scroll tabs right|Rolar abas para a direita
 About_GitHubButton|GitHub project|Projeto no GitHub
+Menu_Invisibles|Show invisible characters in this tab|Mostrar caracteres invisíveis nesta aba
+Menu_ResetDisplay|Use global display settings|Usar opções globais de visualização
+Tab_WrapOverride|Word wrap differs from preferences|A quebra visual difere das preferências
+Tab_InvisiblesOverride|Invisible character display differs from preferences|A exibição de invisíveis difere das preferências
+Menu_MarkdownPreview|Markdown preview|Prévia Markdown
+Menu_FormatDocument|Format JSON, JSONC or XML|Formatar JSON, JSONC ou XML
+Dialog_InvalidFormat|The document does not match the expected format.|O documento não corresponde ao formato esperado.

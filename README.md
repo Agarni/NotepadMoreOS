@@ -4,6 +4,8 @@
 
 Um editor de texto e código multiplataforma inspirado no **Notepad++**, construído com **Avalonia 12**, **.NET 10** e **AvaloniaEdit**. Versão atual: **1.7.4**.
 
+O editor oferece quebra visual de linha e marcas de caracteres invisíveis por aba, prévia Markdown e formatação local de JSON, JSONC e XML. Consulte o [guia do usuário](docs/GUIA-USUARIO.md).
+
 ## Download
 
 Os instaladores ficam em [Releases](https://github.com/Agarni/NotepadMoreOS/releases):

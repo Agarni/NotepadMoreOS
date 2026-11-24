@@ -887,10 +887,35 @@ public partial class MainWindowViewModel : ObservableObject, IDisposable
     }
 
     [RelayCommand]
+    private async Task FormatDocumentAsync()
+    {
+        if (ActiveDocument is not { IsReadOnly: false } document)
+            return;
+
+        var extension = "." + document.ExtensionBadge.ToLowerInvariant();
+        if (!DocumentFormatter.Supports(extension))
+        {
+            await _dialogs.ShowErrorAsync(Strings.Menu_FormatDocument, Strings.Dialog_InvalidFormat);
+            return;
+        }
+
+        var source = document.Document.Text;
+        var indent = EditorSettings.ConvertTabsToSpaces ? new string(' ', EditorSettings.TabSize) : "\t";
+        var formatted = DocumentFormatter.Format(source, extension, indent, document.LineEnding.Value.ToSequence());
+        if (formatted is null)
+        {
+            await _dialogs.ShowErrorAsync(Strings.Menu_FormatDocument, Strings.Dialog_InvalidFormat);
+            return;
+        }
+
+        if (formatted != source)
+            document.Document.Replace(0, source.Length, formatted);
+    }
+
+    [RelayCommand]
     private void ToggleWordWrap()
     {
-        EditorSettings.WordWrap = !EditorSettings.WordWrap;
-        ShowStatus(EditorSettings.WordWrap ? Strings.Status_WordWrapOn : Strings.Status_WordWrapOff);
+        ActiveDocument?.ToggleWrapOverrideCommand.Execute(null);
     }
 
     [RelayCommand]

@@ -64,6 +64,7 @@ public partial class DocumentView : UserControl
         _attached = true;
         _editor = editor;
         _viewModel = viewModel;
+        UpdatePreviewLayout();
         editor.Document = viewModel.Document;
         _viewModel.Host = new EditorHost(editor);
 
@@ -309,7 +310,11 @@ public partial class DocumentView : UserControl
 
     private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
     {
-        if (e.PropertyName == nameof(DocumentViewModel.LanguageScope))
+        if (e.PropertyName == nameof(DocumentViewModel.ShowMarkdownPreview))
+        {
+            UpdatePreviewLayout();
+        }
+        else if (e.PropertyName == nameof(DocumentViewModel.LanguageScope))
         {
             ApplyGrammar();
             ApplyIndentation();
@@ -318,6 +323,15 @@ public partial class DocumentView : UserControl
         {
             _editor.Document = _viewModel.Document;
         }
+    }
+
+    private void UpdatePreviewLayout()
+    {
+        var rows = EditorLayout.RowDefinitions;
+        rows[0].Height = new GridLength(1, GridUnitType.Star);
+        rows[2].Height = _viewModel?.ShowMarkdownPreview == true
+            ? new GridLength(1, GridUnitType.Star)
+            : new GridLength(0);
     }
 
     private void OnThemeChanged(object? sender, EventArgs e) => ApplyTheme();

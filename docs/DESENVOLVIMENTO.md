@@ -167,6 +167,10 @@ A maior parte é automática:
 4. Se precisar de indentação específica, ajuste `DocumentView.ApplyIndentation`.
 5. Adicione um teste para detecção e prefixo, quando aplicável.
 
+### Prévia e formatação de documentos
+
+A prévia Markdown é vinculada pelo `DocumentView` e acompanha o texto enquanto estiver aberta. O divisor redimensiona as linhas do editor e da prévia. `UpdatePreviewLayout` restaura as proporções ao abrir e zera a linha da prévia ao fechar. A ferramenta de snapshot verifica a recuperação da área do editor após mudar a proporção e fechar o painel. Ao alterar `DocumentFormatter`, preserve comentários do JSONC, respeite a indentação configurada e só substitua o documento após validar e formatar todo o conteúdo.
+
 ### 4.6 Alterar a busca
 
 **No documento:** `SearchService` concentra regex, opções, preview e replace. A UI chama `FindReplaceViewModel`, que mantém escopo e estado. Evite duplicar a construção de regex na UI.

@@ -159,6 +159,24 @@ internal static class Program
         viewModel.RecentFiles.Clear();
 
         Wait(viewModel.OpenPathsAsync([codePath, notesPath]));
+        viewModel.ActiveDocument = viewModel.Documents[1];
+        Pump();
+        var documentView = window.GetVisualDescendants().OfType<DocumentView>().First();
+        var layout = documentView.FindControl<Grid>("EditorLayout")!;
+        var editor = documentView.FindControl<AvaloniaEdit.TextEditor>("Editor")!;
+        var fullHeight = editor.Bounds.Height;
+        viewModel.ActiveDocument.MarkdownPreviewOpen = true;
+        Pump();
+        if (layout.RowDefinitions[2].ActualHeight <= 80 || editor.Bounds.Height >= fullHeight)
+            throw new InvalidOperationException("Markdown preview did not share the editor area.");
+        layout.RowDefinitions[0].Height = new GridLength(3, GridUnitType.Star);
+        layout.RowDefinitions[2].Height = new GridLength(1, GridUnitType.Star);
+        Pump();
+        viewModel.ActiveDocument.MarkdownPreviewOpen = false;
+        Pump();
+        if (layout.RowDefinitions[2].ActualHeight > 0.5 || Math.Abs(editor.Bounds.Height - fullHeight) > 1)
+            throw new InvalidOperationException("Closing Markdown preview did not restore the editor area.");
+        Console.WriteLine("Markdown preview layout OK");
         viewModel.Documents[1].TabColorHex = "#4A9EDB";
         Wait(viewModel.SaveSessionWithNameAsync("Demo workspace", replaceExisting: false));
         viewModel.ActiveDocument = viewModel.Documents[0];
